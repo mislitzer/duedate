@@ -1,10 +1,34 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+    <ion-searchbar
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>  </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-list-header>
+     Kurs
+    </ion-list-header>
+
+    <ion-item *ngFor="let module of modules" value="module">
+
+      <div>
+        {{module.name}}
+      </div>
+
+      <div item-right>
+       {{ module.teacher}}
+      </div>
+    </ion-item>
+
+  </ion-list>
+
+
   <h2>Welcome to Ionic!</h2>
   <p>
     This starter project comes with simple tabs-based layout for apps

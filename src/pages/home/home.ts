@@ -7,7 +7,21 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  public modules:Array<{name:string,teacher:string}>;
+  public module:{name:string, teacher:string};
+
   constructor(public navCtrl: NavController) {
+
+    this.modules = [
+      {
+        name:"Modul 1",
+        teacher:"Lektor 1"
+      },
+      {
+        name:"Modul 2",
+        teacher: "Lektor 1"
+      }
+    ]
 
   }
 
