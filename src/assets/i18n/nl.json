@@ -1,0 +1,12 @@
+{
+	"HELLO":"Test",
+    "HOME": {
+        "COURSE": "Course",
+        "LABEL1": "Next Label",
+        "LABEL2": "Next Label"
+    },
+    "MODULES": {
+    	"LABEL1": "Next Label",
+        "LABEL2": "Next Label"
+    }
+}
