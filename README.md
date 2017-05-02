@@ -1,2 +1,4 @@
-Duedate Ionic Project
-Wieder mal eine weitere elendige Ionic App
+Duedate Ionic Project!
+
+
+Wieder mal eine weitere elendige Ionic App!
