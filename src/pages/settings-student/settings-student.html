@@ -7,23 +7,42 @@
     </ion-searchbar>
 </ion-header>
 
+
 <ion-content>
 
+
   <ion-list>
-    <ion-list-header>
-      {{'HOME.COURSE' | translate}}
+    <ion-list-header class="list-header">
+      Account Settings
     </ion-list-header>
 
-    <ion-item *ngFor="let module of modules" value="module">
+    <ion-item >
 
       <div>
-        {{module.name}}
+        Matrikelnummer: {{student.id}}
       </div>
 
+    </ion-item>
+
+    <ion-item>
+      <div>
+        Passwort ändern
+      </div>
       <div item-right>
-       {{ module.teacher}}
+        Pfeil einbauen
       </div>
     </ion-item>
 
+    <ion-item>
+      <div>
+        Meldungen
+      </div>
+      <div item-right>
+        Box einbauen
+      </div>
+    </ion-item>
+
+
   </ion-list>
+
 </ion-content>

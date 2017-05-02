@@ -7,11 +7,13 @@
     </ion-searchbar>
 </ion-header>
 
+
 <ion-content>
+
 
   <ion-list>
     <ion-list-header>
-      {{'HOME.COURSE' | translate}}
+      Morgen
     </ion-list-header>
 
     <ion-item *ngFor="let module of modules" value="module">
@@ -21,9 +23,11 @@
       </div>
 
       <div item-right>
-       {{ module.teacher}}
+        {{ module.dueDate | date:'dd.MM.yyyy'}}
       </div>
+
     </ion-item>
 
   </ion-list>
+
 </ion-content>
