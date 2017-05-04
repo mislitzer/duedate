@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { DueDate } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { ReminderPage } from '../pages/reminder/reminder';
+import { SettingsStudentPage } from '../pages/settings-student/settings-student';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -22,8 +22,8 @@ export function HttpLoaderFactory(http: Http) {
 @NgModule({
   declarations: [
     DueDate,
-    AboutPage,
-    ContactPage,
+    ReminderPage,
+    SettingsStudentPage,
     HomePage,
     TabsPage
   ],
@@ -42,8 +42,8 @@ export function HttpLoaderFactory(http: Http) {
   bootstrap: [IonicApp],
   entryComponents: [
     DueDate,
-    AboutPage,
-    ContactPage,
+    ReminderPage,
+    SettingsStudentPage,
     HomePage,
     TabsPage
   ],
