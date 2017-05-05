@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { DueDate } from './app.component';
 
 import { ReminderPage } from '../pages/reminder/reminder';
-import { SettingsStudentPage } from '../pages/settings-student/settings-student';
+import { SettingsPage } from '../pages/settings/settings';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -23,7 +23,7 @@ export function HttpLoaderFactory(http: Http) {
   declarations: [
     DueDate,
     ReminderPage,
-    SettingsStudentPage,
+    SettingsPage,
     HomePage,
     TabsPage
   ],
@@ -43,7 +43,7 @@ export function HttpLoaderFactory(http: Http) {
   entryComponents: [
     DueDate,
     ReminderPage,
-    SettingsStudentPage,
+    SettingsPage,
     HomePage,
     TabsPage
   ],

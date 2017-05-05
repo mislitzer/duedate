@@ -19,6 +19,18 @@ export class HomePage {
       {
         name:"Modul 2",
         teacher: "Lektor 1"
+      },
+      {
+        name:"Modul 2",
+        teacher: "Lektor 1"
+      },
+      {
+        name:"Modul 2",
+        teacher: "Lektor 1"
+      },
+      {
+        name:"Modul 2",
+        teacher: "Lektor 1"
       }
     ]
 

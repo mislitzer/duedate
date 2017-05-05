@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-searchbar class="searchBar"
+      [(ngModel)]="myInput"
+      [showCancelButton]="shouldShowCancel"
+      (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-list>
+    <ion-list-header class="listHeader">
+      <p class="">Account Settings</p>
+    </ion-list-header>
+
+    <ion-item >
+
+      <ion-label>
+        Matrikelnummer: {{student.id}}
+      </ion-label>
+
+    </ion-item>
+
+    <ion-item >
+
+      <ion-label>
+        E-Mail Adresse: {{student.email}}
+      </ion-label>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Passwort ändern
+      </ion-label>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        Meldungen
+      </ion-label>
+      <ion-toggle item-right [(ngModel)]="messages"></ion-toggle>
+    </ion-item>
+
+
+    <ion-item>
+
+      <div>
+        Klas: {{student.klas}}
+      </div>
+
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-list radio-group [(ngModel)]="standardReminder">
+    <ion-list-header class="listHeader">
+      <ion-label>Standard Reminder</ion-label>
+    </ion-list-header>
+
+    <ion-item class="centeredList" >
+      <ion-label>5 Minuten</ion-label>
+      <ion-radio value="select1" checked="true"></ion-radio>
+    </ion-item>
+
+    <ion-item  class="centeredList">
+      <ion-label>1 Stunde</ion-label>
+      <ion-radio value="select2"></ion-radio>
+    </ion-item>
+
+    <ion-item  class="centeredList">
+      <ion-label>1 Woche</ion-label>
+      <ion-radio value="select3"></ion-radio>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

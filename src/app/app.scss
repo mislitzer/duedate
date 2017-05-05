@@ -16,18 +16,68 @@
 // automatically applied to the <body> element in the app.
 
 
-.list-header{
-  background-color:lightGrey;
-  padding-left:16px;
-  color:black;
-}
-
 
 .searchBar{
   box-shadow:none;
+  background:white;
 }
 
 ion-header{
   background-color:white;
 }
 
+
+.searchbar-md {
+
+  padding: 15px 15px 15px 15px;
+
+  .searchbar-input{
+
+    box-shadow:none;
+    border: 0.5px solid darkgrey;
+
+  }
+
+}
+
+.scroll-content{
+  margin-top: 74px;
+  overflow-y: hidden;
+
+
+}
+
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+  background-image:none;
+}
+
+
+.listHeader{
+  background-color: #f2f2f2
+}
+
+.label-md{
+  margin:0;
+}
+
+.list-header-md{
+  min-height:3rem;
+}
+
+.list-md + ion-list ion-list-header{
+  margin-top:0;
+}
+
+.tabs-md .tab-button[aria-selected=true]{
+  color:  #f53d3d;
+
+  .tab-button-icon{
+    color:  #f53d3d;
+
+  }
+}
+
+
+ion-row{
+  flex-wrap: nowrap
+}
