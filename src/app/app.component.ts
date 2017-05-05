@@ -4,13 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import {TranslateService} from '@ngx-translate/core';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login' ;
+
 
 @Component({
   templateUrl: 'app.html'
 })
 export class DueDate {
-  rootPage:any = TabsPage;
+  rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService) {
     platform.ready().then(() => {

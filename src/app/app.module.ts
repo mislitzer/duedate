@@ -7,6 +7,8 @@ import { ReminderPage } from '../pages/reminder/reminder';
 import { SettingsStudentPage } from '../pages/settings-student/settings-student';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +27,8 @@ export function HttpLoaderFactory(http: Http) {
     ReminderPage,
     SettingsStudentPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ export function HttpLoaderFactory(http: Http) {
     ReminderPage,
     SettingsStudentPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
