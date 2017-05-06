@@ -12,8 +12,22 @@ $font-path: "../assets/fonts";
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
+//Toggle color + size
+$toggle-md-track-background-color-on: #f53d3d;
+$toggle-md-handle-background-color-off: #ffffff;
+$toggle-md-handle-background-color-on: #ffffff;
+$toggle-md-track-height: 28px;
+$toggle-md-track-width: 45px;
+$toggle-md-handle-height:25px;
+$toggle-md-handle-width:25px;
 
 
+//Radio Group for SettingsStudent Page
+$radio-md-color-on: #f53d3d;
+$radio-md-icon-height: 0;
+$radio-md-icon-width: 0;
+$radio-md-icon-border-width: 0;
+$radio-md-color-off: #f4f4f4;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -28,7 +42,7 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
 );
 
 
