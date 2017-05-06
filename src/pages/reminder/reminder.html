@@ -12,19 +12,46 @@
 
 
   <ion-list>
-    <ion-list-header>
+    <ion-list-header class="listHeader">
       Morgen
     </ion-list-header>
 
     <ion-item *ngFor="let module of modules" value="module">
 
-      <div>
-        {{module.name}}
-      </div>
+      <ion-label>
+        <span class="taskHeader">{{module.title}}</span> <br/>
+        <span class="taskDescription">{{module.name}}</span>
+      </ion-label>
 
-      <div item-right>
+      <ion-label item-right>
         {{ module.dueDate | date:'dd.MM.yyyy'}}
-      </div>
+      </ion-label>
+
+      <ion-icon item-right name="md-time"></ion-icon>
+
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header class="listHeader">
+      Next Week
+    </ion-list-header>
+
+    <ion-item *ngFor="let module of modules" value="module">
+
+      <ion-label>
+        <span class="taskHeader">{{module.title}}</span> <br/>
+        <span class="taskDescription">{{module.name}}</span>
+      </ion-label>
+
+      <ion-label item-right>
+        {{ module.dueDate | date:'dd.MM.yyyy'}}
+      </ion-label>
+
+      <ion-icon item-right name="md-time"></ion-icon>
+
 
     </ion-item>
 
