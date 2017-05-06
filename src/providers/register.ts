@@ -27,7 +27,6 @@ export class RegisterService {
         }
 
         posts = posts.replace("&", "");
-        posts = posts + "&isStudent=true";
 
         return new Promise(resolve => {
             this.http.post(this.config.getServiceBase() + "/user", posts, {
