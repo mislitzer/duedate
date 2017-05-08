@@ -16,6 +16,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule, Http} from '@angular/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {AddModulePage} from "../pages/add-module/add-module";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -28,7 +29,8 @@ export function HttpLoaderFactory(http: Http) {
     SettingsPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    AddModulePage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ export function HttpLoaderFactory(http: Http) {
     SettingsPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    AddModulePage
   ],
   providers: [
     StatusBar,
