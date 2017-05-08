@@ -5,24 +5,20 @@
 </ion-header>
 
 <ion-content>
+  <form (ngSubmit)="loginUser()">
+    <ion-list>
 
-  <ion-list>
-    <ion-list-header>
-      <h1>Login</h1>
-    </ion-list-header>
 
-    <ion-item>
-      <ion-input type="text" id="name" placeholder="Name or E-Mail"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-input type="text" name="name" [(ngModel)]="login.name" placeholder="Name or E-Mail"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-input type="password" id="email" placeholder="Password"></ion-input>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-input type="password" name="password" [(ngModel)]="login.password" placeholder="Password"></ion-input>
+      </ion-item>
+      <button ion-button full type="submit">{{'START.LOGIN' | translate}}</button>
+
+    </ion-list>
+  </form>
 </ion-content>
 
-<ion-footer>
-    <div class="footer-navigation">
-      <button ion-button full (click)="clicked($event)">{{'START.LOGIN' | translate}}</button>
-    </div>
-</ion-footer>
