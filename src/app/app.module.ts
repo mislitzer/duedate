@@ -22,6 +22,7 @@ import {HttpModule, Http} from '@angular/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AddModulePage} from "../pages/add-module/add-module";
+import {DeadlinesPage} from "../pages/deadlines/deadlines";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -35,13 +36,11 @@ export function HttpLoaderFactory(http: Http) {
     HomePage,
     TabsPage,
     LoginPage,
-<<<<<<< HEAD
     Register,
     ModuleDetail,
+    AddModulePage,
+    DeadlinesPage,
     Start
-=======
-    AddModulePage
->>>>>>> origin/UIbranche
   ],
   imports: [
     BrowserModule,
@@ -63,13 +62,11 @@ export function HttpLoaderFactory(http: Http) {
     HomePage,
     TabsPage,
     LoginPage,
-<<<<<<< HEAD
     Register,
     ModuleDetail,
+    AddModulePage,
+    DeadlinesPage,
     Start
-=======
-    AddModulePage
->>>>>>> origin/UIbranche
   ],
   providers: [
     StatusBar,

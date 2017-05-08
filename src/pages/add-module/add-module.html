@@ -18,12 +18,24 @@
     </ion-list-header>
 
     <ion-item>
-      <ion-label>{{'ADD-MODULE.NAME' | translate}}</ion-label><ion-input type="text" id="moduleName"></ion-input>
+      <ion-label floating>
+        {{'ADD-MODULE.NAME' | translate}}
+      </ion-label>
+      <ion-input type="text" id="moduleName"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>{{'ADD-MODULE.SEMESTER' | translate}}</ion-label><ion-input type="text" id="moduleSemester"></ion-input>
+      <ion-label floating>
+        {{'ADD-MODULE.SEMESTER' | translate}}
+      </ion-label>
+      <ion-input type="text" id="moduleSemester"></ion-input>
     </ion-item>
   </ion-list>
 
 </ion-content>
+
+<ion-footer>
+  <div class="footer-navigation">
+    <button ion-button full (click)="clicked($event)">{{'DEADLINES.GO' | translate}}</button>
+  </div>
+</ion-footer>

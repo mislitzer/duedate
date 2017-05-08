@@ -1,0 +1,61 @@
+<!--
+  Generated template for the Deadlines page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'DEADLINES.TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-list-header class="listHeader">
+      {{ 'DEADLINES.LIST-TITLE' | translate }}
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label floating>
+        {{ 'DEADLINES.NAME' | translate }}
+      </ion-label>
+      <ion-input type="text" id="deadlineName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        {{ 'DEADLINES.DATE' | translate }}
+      </ion-label>
+      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        {{ 'DEADLINES.TIME' | translate }}
+      </ion-label>
+      <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>
+        {{ 'DEADLINES.CLASS' | translate }}
+      </ion-label>
+      <ion-input type="text" id="class"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="footer-navigation">
+
+    <ion-icon class="checkButtons" item-left name="md-close-circle"></ion-icon>
+    <ion-icon class="checkButtons" item-right name="md-checkmark-circle"></ion-icon>
+
+  </div>
+
+</ion-content>
