@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AddModulePage } from '../add-module/add-module'
 
 @Component({
   selector: 'page-home',
@@ -34,6 +35,10 @@ export class HomePage {
       }
     ]
 
+  }
+
+  clicked(event){
+    this.navCtrl.push(AddModulePage);
   }
 
 }
