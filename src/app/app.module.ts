@@ -22,13 +22,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {HttpModule, Http} from '@angular/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-<<<<<<< HEAD
+
 import {AddModulePage} from "../pages/add-module/add-module";
+
 import {DeadlinesPage} from "../pages/deadlines/deadlines";
-=======
+
 import {LoginService} from "../providers/login";
 import {IonicStorageModule} from "@ionic/storage";
->>>>>>> workingBranch
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
