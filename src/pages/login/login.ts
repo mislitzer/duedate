@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs' ;
+import {Component} from '@angular/core';
+import {NavController, ToastController} from 'ionic-angular';
+import {TabsPage} from '../tabs/tabs' ;
+import {LoginService} from '../../providers/login';
+import {Storage} from "@ionic/storage";
+//import {Deeplinks} from  '@ionic-native';
 
 
 @Component({
@@ -9,15 +12,51 @@ import { TabsPage } from '../tabs/tabs' ;
 })
 export class LoginPage {
 
+  login: any = {};
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public toastController: ToastController,
+              public loginService: LoginService, public storage: Storage) {
+  }
 
-    
+  loginUser() {
+    console.log(this.login.name + " " + this.login.password)
+    if (this.login.name && this.login.password) {
+      this.loginUserRequest();
+    }
+    else {
+      this.showToast("Please fill out all input fields!", 3000, "bottom");
+    }
 
   }
 
-  clicked(event){
-    this.navCtrl.push(TabsPage);
+  loginUserRequest() {
+    this.loginService.load(this.login)
+      .then(data => {
+        if (data && data != null && data._body != "User not found") {
+          this.saveUserLocal(data._body);
+          this.navCtrl.push(TabsPage);
+        } else if (data._body == "User not found") {
+          this.showToast("User not found", 3000, "bottom");
+        } else if (data._body == "Password incorrect") {
+          this.showToast("Password incorrect", 3000, "bottom");
+        }
+      })
+
   }
+
+  saveUserLocal(body){
+    this.storage.set('user', body);
+
+  }
+
+  showToast(message: string, speed: number, position: string) {
+    let toast = this.toastController.create({
+      message: message,
+      duration: speed,
+      position: position
+    });
+    toast.present();
+  }
+
 
 }

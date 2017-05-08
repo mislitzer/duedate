@@ -51,6 +51,7 @@ export class Register {
                   this.navCtrl.popToRoot();
               }
           })
+
   }
 
   emailCheck() {
