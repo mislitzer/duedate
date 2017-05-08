@@ -8,6 +8,12 @@
     "MODULES": {
     	"LABEL1": "Next Label",
         "LABEL2": "Next Label"
+    },
+    "ADD-MODULE":{
+      "TITLE": "create module",
+      "LIST-TITLE": "new module",
+      "NAME": "Name:",
+      "SEMESTER": "Semester:"
     }
 
 
