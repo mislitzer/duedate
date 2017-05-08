@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
 import { DueDate } from './app.component';
 
 import { ReminderPage } from '../pages/reminder/reminder';
@@ -15,14 +15,20 @@ import { Start } from "../pages/start/start";
 import {Configuration} from "../environments/configuration";
 import {RegisterService} from "../providers/register";
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {HttpModule, Http} from '@angular/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+<<<<<<< HEAD
 import {AddModulePage} from "../pages/add-module/add-module";
 import {DeadlinesPage} from "../pages/deadlines/deadlines";
+=======
+import {LoginService} from "../providers/login";
+import {IonicStorageModule} from "@ionic/storage";
+>>>>>>> workingBranch
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -52,7 +58,8 @@ export function HttpLoaderFactory(http: Http) {
                 deps: [Http]
             }
         }),
-    IonicModule.forRoot(DueDate)
+    IonicModule.forRoot(DueDate),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -73,6 +80,7 @@ export function HttpLoaderFactory(http: Http) {
     SplashScreen,
     RegisterService,
     Configuration,
+    LoginService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
