@@ -1,5 +1,20 @@
 {
 	"HELLO":"Test",
+    "START": {
+      "WELCOME": "WELCOME",
+      "LOGIN": "Login",
+      "REGISTER": "Register"
+    },
+    "LOGIN":{
+
+    },
+    "REGISTER": {
+      "EMAIL": "Email",
+      "USERNAME": "Username",
+      "PASSWORD": "Password",
+      "PASSWORD_REPEAT": "Repeat Password",
+      "REGISTER": "Register"
+    },
     "HOME": {
         "COURSE": "Course",
         "LABEL1": "Next Label",
@@ -15,6 +30,9 @@
       "NAME": "Name:",
       "SEMESTER": "Semester:"
     }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> origin/UIbranche
 }
