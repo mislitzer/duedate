@@ -8,7 +8,12 @@ import { SettingsPage } from '../pages/settings/settings';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { Register } from "../pages/register/register";
+import { ModuleDetail } from "../pages/module-detail/module-detail";
+import { Start } from "../pages/start/start";
 
+import {Configuration} from "../environments/configuration";
+import {RegisterService} from "../providers/register";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +33,10 @@ export function HttpLoaderFactory(http: Http) {
     SettingsPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    Register,
+    ModuleDetail,
+    Start
   ],
   imports: [
     BrowserModule,
@@ -49,11 +57,16 @@ export function HttpLoaderFactory(http: Http) {
     SettingsPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    Register,
+    ModuleDetail,
+    Start
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    RegisterService,
+    Configuration,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

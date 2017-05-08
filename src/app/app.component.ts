@@ -5,13 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {TranslateService} from '@ngx-translate/core';
 
 import { LoginPage } from '../pages/login/login' ;
+import {Start} from "../pages/start/start";
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class DueDate {
-  rootPage:any = LoginPage;
+  rootPage:any = Start;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService) {
     platform.ready().then(() => {
