@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AddModulePage } from '../add-module/add-module'
+import {ModuleDetail} from '../module-detail/module-detail'
 
 @Component({
   selector: 'page-home',
@@ -41,4 +42,7 @@ export class HomePage {
     this.navCtrl.push(AddModulePage);
   }
 
+  goToDetail(event){
+    this.navCtrl.push(ModuleDetail)
+  }
 }

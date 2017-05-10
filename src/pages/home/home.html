@@ -23,7 +23,7 @@
 
     <ion-item *ngFor="let module of modules" value="module">
 
-      <ion-label class="taskHeader">
+      <ion-label class="taskHeader" (click)="goToDetail($event)">
         {{module.name}}
       </ion-label>
 
