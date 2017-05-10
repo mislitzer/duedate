@@ -6,7 +6,7 @@
       (ionInput)="onInput($event)"
       (ionCancel)="onCancel($event)">
     </ion-searchbar>
-    <div class="addIconHeader">
+    <div class="addIconHeader" *ngIf="!user.student">
       <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
     </div>
 
@@ -23,7 +23,7 @@
 
     <ion-item *ngFor="let module of modules" value="module">
 
-      <ion-label class="taskHeader">
+      <ion-label class="taskHeader" (click)="goToDetail($event)">
         {{module.name}}
       </ion-label>
 
