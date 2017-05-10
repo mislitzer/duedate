@@ -5,7 +5,9 @@
 </ion-header>
 
 <ion-content padding>
-  ##LOGO##
+    <div class="app-image">
+        <img src="assets/logo-mobile-red.svg" />
+    </div>
   <form (ngSubmit)="registerUser()">
     <ion-list>
       <ion-item>
@@ -33,7 +35,7 @@
         <ion-input clearInput type="password" name="passwordRepeat" [(ngModel)]="register.passwordrpt" placeholder="{{'REGISTER.PASSWORD_REPEAT' | translate}}"></ion-input>
       </ion-item>
 
-      <button ion-button full type="submit">{{'REGISTER.REGISTER' | translate}}</button>
+      <button class="dd-button" ion-button full type="submit">{{'REGISTER.REGISTER' | translate}}</button>
     </ion-list>
   </form>
 </ion-content>
