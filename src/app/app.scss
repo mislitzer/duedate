@@ -84,3 +84,22 @@ ion-row{
 .footer-navigation {
   margin-bottom: 20px;
 }
+
+button.dd-button {
+  background: #cc0033;
+}
+
+button.dd-button.activated {
+  background: #FF1953;
+}
+
+button.back-button {
+  color: #cc0033;
+}
+
+.app-image {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 220px;
+}
