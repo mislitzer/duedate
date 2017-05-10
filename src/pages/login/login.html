@@ -4,11 +4,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+    <div class="app-image">
+        <img src="assets/logo-mobile-red.svg" />
+    </div>
   <form (ngSubmit)="loginUser()">
     <ion-list>
-
-
       <ion-item>
         <ion-input type="text" name="name" [(ngModel)]="login.name" placeholder="Name or E-Mail"></ion-input>
       </ion-item>
@@ -16,7 +17,7 @@
       <ion-item>
         <ion-input type="password" name="password" [(ngModel)]="login.password" placeholder="Password"></ion-input>
       </ion-item>
-      <button ion-button full type="submit">{{'START.LOGIN' | translate}}</button>
+      <button class="dd-button" ion-button full type="submit">{{'START.LOGIN' | translate}}</button>
 
     </ion-list>
   </form>
