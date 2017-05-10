@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AddModulePage } from '../add-module/add-module'
 import {ModuleDetail} from '../module-detail/module-detail'
+import {Configuration} from "../../environments/configuration";
 
 @Component({
   selector: 'page-home',
@@ -9,9 +10,14 @@ import {ModuleDetail} from '../module-detail/module-detail'
 })
 export class HomePage {
 
+  public user:any;
+
   public modules:Array<{name:string,teacher:string}>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public config: Configuration) {
+
+    this.user = config.getUser();
+    console.log(this.user);
 
     this.modules = [
       {

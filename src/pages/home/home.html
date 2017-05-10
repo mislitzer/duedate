@@ -6,7 +6,7 @@
       (ionInput)="onInput($event)"
       (ionCancel)="onCancel($event)">
     </ion-searchbar>
-    <div class="addIconHeader">
+    <div class="addIconHeader" *ngIf="!user.student">
       <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
     </div>
 

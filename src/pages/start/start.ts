@@ -4,6 +4,7 @@ import {LoginPage} from "../login/login";
 import {Register} from "../register/register";
 import {Storage} from "@ionic/storage";
 import {TabsPage} from "../tabs/tabs";
+import {Configuration} from "../../environments/configuration";
 
 
 @Component({
@@ -12,11 +13,11 @@ import {TabsPage} from "../tabs/tabs";
 })
 export class Start {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage, public config: Configuration) {
 
     storage.get('user').then((val) => {
       if (val != null) {
-        console.log(val);
+        this.config.setUser(JSON.parse(val));
         this.navCtrl.setRoot(TabsPage);
       }
 

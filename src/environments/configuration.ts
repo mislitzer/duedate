@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Configuration {
     private _user:any;
-    private _serviceBase:string = "http://8d9aa189.ngrok.io";
+    private _serviceBase:string = "https://64c3b966.ngrok.io";
 
     setUser(data) {
         this._user = data;
