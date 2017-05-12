@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {Configuration} from "../../environments/configuration";
 
 /**
  * Generated class for the ModuleDetail page.
@@ -13,11 +14,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ModuleDetail {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  module: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ModuleDetail');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration) {
+    if(this.config.getModule() != null){
+      this.module = this.config.getModule();
+    }
   }
 
 }

@@ -42,20 +42,15 @@
       <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm"></ion-datetime>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="lastListItem">
       <ion-label floating>
         {{ 'DEADLINES.CLASS' | translate }}
       </ion-label>
-      <ion-input type="text" id="class"></ion-input>
+      <ion-input type="text" id="class" (keyup)="autoCompleteClass($event)"></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <div class="footer-navigation">
-
-    <ion-icon class="checkButtons" item-left name="md-close-circle"></ion-icon>
-    <ion-icon class="checkButtons" item-right name="md-checkmark-circle"></ion-icon>
-
-  </div>
-
+  <ion-icon class="checkButtons" item-left name="md-close-circle"></ion-icon>
+  <ion-icon class="checkButtons" item-right name="md-checkmark-circle"></ion-icon>
 </ion-content>

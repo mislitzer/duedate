@@ -30,6 +30,9 @@ import {DeadlinesPage} from "../pages/deadlines/deadlines";
 import {LoginService} from "../providers/login";
 import {IonicStorageModule} from "@ionic/storage";
 
+import {AddModuleService} from "../providers/add-module";
+import {HomeService} from "../providers/home";
+
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
 }
@@ -81,6 +84,8 @@ export function HttpLoaderFactory(http: Http) {
     RegisterService,
     Configuration,
     LoginService,
+    AddModuleService,
+    HomeService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

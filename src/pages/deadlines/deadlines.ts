@@ -13,11 +13,23 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DeadlinesPage {
 
+  showList: boolean;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Deadlines');
+  autoCompleteClass(input){
+    this.showList = true;
+
+    let val = input.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      //todo: liste für class vorschläge
+    }
+    else {
+      //todo: wenn keine eingabe gemacht wurde
+    }
   }
 
 }

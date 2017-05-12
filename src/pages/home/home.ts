@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { AddModulePage } from '../add-module/add-module'
 import {ModuleDetail} from '../module-detail/module-detail'
 import {Configuration} from "../../environments/configuration";
+import { HomeService } from '../../providers/home';
 
 @Component({
   selector: 'page-home',
@@ -14,10 +15,11 @@ export class HomePage {
 
   public modules:Array<{name:string,teacher:string}>;
 
-  constructor(public navCtrl: NavController, public config: Configuration) {
+  constructor(public navCtrl: NavController, public config: Configuration, public homeService: HomeService) {
 
     this.user = config.getUser();
     console.log(this.user);
+    this.getModule();
 
     this.modules = [
       {
@@ -44,11 +46,21 @@ export class HomePage {
 
   }
 
+  getModule(){
+    // todo: richtiges key value paar übergeben
+    this.homeService.load(this.user)
+      .then(data => {
+        console.log(data);
+      });
+
+  }
+
   clicked(event){
     this.navCtrl.push(AddModulePage);
   }
 
-  goToDetail(event){
+  goToDetail(event, module){
+    this.config.setModule(module);
     this.navCtrl.push(ModuleDetail)
   }
 }
