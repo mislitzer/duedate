@@ -21,14 +21,14 @@
       <ion-label floating>
         {{'ADD-MODULE.NAME' | translate}}
       </ion-label>
-      <ion-input type="text" id="moduleName"></ion-input>
+      <ion-input type="text" [(ngModel)]="module.name"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>
         {{'ADD-MODULE.SEMESTER' | translate}}
       </ion-label>
-      <ion-input type="text" id="moduleSemester"></ion-input>
+      <ion-input type="text" [(ngModel)]="module.semester"></ion-input>
     </ion-item>
   </ion-list>
 

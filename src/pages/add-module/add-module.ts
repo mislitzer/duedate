@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {DeadlinesPage} from "../deadlines/deadlines";
+import {Configuration} from "../../environments/configuration";
 
 /**
  * Generated class for the AddModule page.
@@ -14,15 +15,14 @@ import {DeadlinesPage} from "../deadlines/deadlines";
 })
 export class AddModulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  module: any = {};
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddModule');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration) {
   }
 
   clicked(event){
+    this.config.setModule(this.module);
+    console.log(this.module.name + " " + this.module.semester);
     this.navCtrl.push(DeadlinesPage);
   }
-
 }
