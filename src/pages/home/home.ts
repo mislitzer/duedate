@@ -21,7 +21,7 @@ export class HomePage {
     console.log(this.user);
     this.getModule();
 
-    this.modules = [
+    /*this.modules = [
       {
         name:"Modul 1",
         teacher:"Lektor 1"
@@ -42,13 +42,12 @@ export class HomePage {
         name:"Modul 2",
         teacher: "Lektor 1"
       }
-    ]
+    ]*/
 
   }
 
   getModule(){
-    // todo: richtiges key value paar übergeben
-    this.homeService.load(this.user)
+    this.homeService.load(this.user.id)
       .then(data => {
         console.log(data);
       });

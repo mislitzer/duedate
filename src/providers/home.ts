@@ -20,15 +20,15 @@ export class HomeService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    let posts = "";
-    for (let key in params) {
+    let posts = "id="+ params;
+    /*for (let key in params) {
       if (key != "") {
         posts += "&" + key + "=" + params[key];
 
       }
-    }
+    }*/
 
-    posts = posts.replace("&", "");
+    // posts = posts.replace("&", "");
     console.log(posts);
 
     return new Promise(resolve => {
@@ -39,6 +39,7 @@ export class HomeService {
         .subscribe(data => {
           //Data return
           this.data = data;
+          console.log(data);
           resolve(this.data);
           this.data = null;
         });
