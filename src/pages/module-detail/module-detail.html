@@ -1,21 +1,18 @@
+
+
 <ion-header>
-  <ion-row >
+  <ion-navbar>
+    <ion-title class="addModuleTitle" item-left>{{module.name}}</ion-title>
 
-    Course Name of Module
-
-    <div class="addIconHeader">
-      <ion-icon class="addIcon" item-right name="md-add-circle"></ion-icon>
-    </div>
-
-  </ion-row>
-
+  </ion-navbar>
 </ion-header>
+
 
 <ion-content>
 
   <ion-list>
     <ion-list-header class="listHeader">
-        Some Deadlines
+        {{"MODULES-DETAIL.TITLE" | translate}}
     </ion-list-header>
 
     <ion-item *ngFor="let deadline of deadlines" value="deadline">

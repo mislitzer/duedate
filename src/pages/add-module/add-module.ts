@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {DeadlinesPage} from "../deadlines/deadlines";
+import { DeadlinesPage } from "../deadlines/deadlines";
+import { Configuration } from "../../environments/configuration";
+import { AddModuleService } from '../../providers/add-module';
 
 /**
  * Generated class for the AddModule page.
@@ -14,15 +16,26 @@ import {DeadlinesPage} from "../deadlines/deadlines";
 })
 export class AddModulePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  module: any = {};
+  user:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration, public addModuleService: AddModuleService,) {
+    this.user = this.config.getUser();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddModule');
+  sendModule(){
+    this.module.user_id = this.user.id;
+    this.addModuleService.load(this.module)
+      .then(data => {
+      console.log(data);
+      this.config.setModule(data);
+      this.saveModulLocal(data._body);
+      this.navCtrl.push(DeadlinesPage);
+    });
+
   }
 
-  clicked(event){
-    this.navCtrl.push(DeadlinesPage);
+  saveModulLocal(body){
+    this.config.setModule(JSON.parse(body));
   }
-
 }

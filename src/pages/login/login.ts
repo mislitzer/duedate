@@ -3,6 +3,7 @@ import {NavController, ToastController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs' ;
 import {LoginService} from '../../providers/login';
 import {Storage} from "@ionic/storage";
+import {Configuration} from "../../environments/configuration";
 //import {Deeplinks} from  '@ionic-native';
 
 
@@ -15,7 +16,7 @@ export class LoginPage {
   login: any = {};
 
   constructor(public navCtrl: NavController, public toastController: ToastController,
-              public loginService: LoginService, public storage: Storage) {
+              public loginService: LoginService, public storage: Storage, public config: Configuration) {
   }
 
   loginUser() {
@@ -32,6 +33,7 @@ export class LoginPage {
   loginUserRequest() {
     this.loginService.load(this.login)
       .then(data => {
+        console.log(data);
         if (data && data != null && data._body != "User not found") {
           this.saveUserLocal(data._body);
           this.navCtrl.push(TabsPage);
@@ -46,7 +48,7 @@ export class LoginPage {
 
   saveUserLocal(body){
     this.storage.set('user', body);
-
+    this.config.setUser(JSON.parse(body));
   }
 
   showToast(message: string, speed: number, position: string) {

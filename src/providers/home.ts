@@ -1,0 +1,49 @@
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/map';
+import {Configuration} from "../environments/configuration";
+import { Http, Headers } from '@angular/http';
+
+@Injectable()
+export class HomeService {
+
+  data: any;
+
+  constructor(public http: Http, public config: Configuration) {
+    this.data = null;
+  }
+
+  load(params) {
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    let posts = "id="+ params;
+    /*for (let key in params) {
+      if (key != "") {
+        posts += "&" + key + "=" + params[key];
+
+      }
+    }*/
+
+    // posts = posts.replace("&", "");
+    console.log(posts);
+
+    return new Promise(resolve => {
+      this.http.post(this.config.getServiceBase() + "/modulelist", posts, {
+        headers: headers
+      })
+        .map(res => res)
+        .subscribe(data => {
+          //Data return
+          this.data = data;
+          console.log(data);
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+
+  }
+}

@@ -5,9 +5,6 @@
       "LOGIN": "Login",
       "REGISTER": "Register"
     },
-    "LOGIN":{
-
-    },
     "REGISTER": {
       "EMAIL": "Email",
       "USERNAME": "Username",
@@ -16,13 +13,11 @@
       "REGISTER": "Register"
     },
     "HOME": {
-        "COURSE": "Course",
-        "LABEL1": "Next Label",
-        "LABEL2": "Next Label"
+        "COURSE": "Course"
     },
-    "MODULES": {
-    	"LABEL1": "Next Label",
-        "LABEL2": "Next Label"
+    "MODULES-DETAIL": {
+    	"TITLE": "Some Headlines",
+      "LABEL2": "Next Label"
     },
     "ADD-MODULE":{
       "TITLE": "create module",
@@ -39,5 +34,12 @@
       "CLASS" : "Class:",
       "GO" : "weiter",
       "LIST-TITLE" : "Deadline"
+    },
+    "REMINDER":{
+      "NEXT-WEEK": "next week",
+      "TOMORROW": "tomorrow"
+    },
+    "SETTINGS":{
+
     }
 }
