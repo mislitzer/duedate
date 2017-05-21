@@ -40,6 +40,13 @@
       "TOMORROW": "tomorrow"
     },
     "SETTINGS":{
-
+      "ACCOUNT_SETTINGS": "Account Settings",
+      "REG_NUMBER": "Registration number:",
+      "EMAIL": "Email:",
+      "CHANGE_PASSWORD": "Change Password",
+      "INFOS": "Alerts",
+      "CLASS": "Class",
+      "STANDARD": "Standard Reminder",
+      "LOGOUT": "Logout"
     }
 }

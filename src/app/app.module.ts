@@ -32,6 +32,7 @@ import {IonicStorageModule} from "@ionic/storage";
 
 import {AddModuleService} from "../providers/add-module";
 import {HomeService} from "../providers/home";
+import {DuedateHelpers} from "../environments/helpers";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -86,6 +87,7 @@ export function HttpLoaderFactory(http: Http) {
     LoginService,
     AddModuleService,
     HomeService,
+    DuedateHelpers,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

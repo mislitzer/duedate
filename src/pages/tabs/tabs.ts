@@ -18,6 +18,5 @@ export class TabsPage {
 
   constructor(public config: Configuration) {
     this.user = config.getUser();
-    console.log(this.user);
   }
 }
