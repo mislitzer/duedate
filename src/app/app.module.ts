@@ -11,6 +11,7 @@ import { LoginPage } from '../pages/login/login';
 import { Register } from "../pages/register/register";
 import { ModuleDetail } from "../pages/module-detail/module-detail";
 import { Start } from "../pages/start/start";
+import { ChangePw } from "../pages/changePw/changePw";
 
 import {Configuration} from "../environments/configuration";
 import {RegisterService} from "../providers/register";
@@ -33,6 +34,7 @@ import {IonicStorageModule} from "@ionic/storage";
 import {AddModuleService} from "../providers/add-module";
 import {HomeService} from "../providers/home";
 import {DuedateHelpers} from "../environments/helpers";
+import {ChangePwService} from "../providers/changePw";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -50,7 +52,8 @@ export function HttpLoaderFactory(http: Http) {
     ModuleDetail,
     AddModulePage,
     DeadlinesPage,
-    Start
+    Start,
+    ChangePw
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ export function HttpLoaderFactory(http: Http) {
     ModuleDetail,
     AddModulePage,
     DeadlinesPage,
-    Start
+    Start,
+    ChangePw
   ],
   providers: [
     StatusBar,
@@ -88,6 +92,7 @@ export function HttpLoaderFactory(http: Http) {
     AddModuleService,
     HomeService,
     DuedateHelpers,
+    ChangePwService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

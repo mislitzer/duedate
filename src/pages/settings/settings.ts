@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {Configuration} from "../../environments/configuration";
 import {Start} from "../start/start";
 import {Storage} from "@ionic/storage";
+import {ChangePw} from  "../changePw/changePw";
 
 @Component({
     selector: 'page-settings',
@@ -14,6 +15,10 @@ export class SettingsPage {
 
     constructor(public navCtrl: NavController, public config: Configuration, public storage: Storage) {
         this.user = config.getUser();
+    }
+
+    changePassword():void{
+      this.navCtrl.push(ChangePw);
     }
 
     logoutUser():void {

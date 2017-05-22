@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'START.LOGIN' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form (ngSubmit)="setNewPw()">
+    <ion-list>
+
+      <ion-item>
+        <ion-input type="password" name="currentPw" [(ngModel)]="changePwForm.password" placeholder="Current Pw"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" name="newPw" [(ngModel)]="changePwForm.new_password" placeholder="New Pw"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" name="password" [(ngModel)]="changePwForm.confirm" placeholder="Confirm Pw"></ion-input>
+      </ion-item>
+      <button class="dd-button" ion-button full type="submit">{{'START.LOGIN' | translate}}</button>
+
+    </ion-list>
+  </form>
+</ion-content>
+
