@@ -26,14 +26,18 @@
             </ion-label>
         </ion-item>
 
-        <ion-item>
+
+        <ion-item (click)="changePassword()">
             <ion-label>
                 {{'SETTINGS.CHANGE_PASSWORD' | translate}}
             </ion-label>
-            <ion-icon name="arrow-forward" item-right></ion-icon>
+            <ion-icon name="arrow-forward" item-right>
+            </ion-icon>
         </ion-item>
 
-        <ion-item *ngIf="user.student">
+
+
+      <ion-item *ngIf="user.student">
             <ion-label>
                 {{'SETTINGS.INFOS' | translate}}
             </ion-label>
