@@ -1,10 +1,16 @@
 
 
 <ion-header>
-  <ion-navbar>
-    <ion-title class="addModuleTitle" item-left>{{module.name}}</ion-title>
+  <div class="flexbar">
 
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title class="addModuleTitle flexitem1" item-left>{{module.module_Name}}</ion-title>
+    </ion-navbar>
+
+    <div class="addIconHeader flexitem2" *ngIf="!user.student">
+      <ion-icon class="addIcon" item-right name="md-add-circle" (click)="addDeadline($event, module)"></ion-icon>
+    </div>
+  </div>
 </ion-header>
 
 
