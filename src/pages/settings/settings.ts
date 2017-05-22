@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, App} from 'ionic-angular';
 import {Configuration} from "../../environments/configuration";
 import {Start} from "../start/start";
 import {Storage} from "@ionic/storage";
@@ -13,7 +13,7 @@ export class SettingsPage {
 
     public user;
 
-    constructor(public navCtrl: NavController, public config: Configuration, public storage: Storage) {
+    constructor(public navCtrl: NavController, public config: Configuration, public storage: Storage, private _app: App) {
         this.user = config.getUser();
     }
 
@@ -27,7 +27,7 @@ export class SettingsPage {
         this.config.setUser(null);
 
         //User auf Home weiterleiten
-        this.navCtrl.setRoot(Start);
+        this._app.getRootNav().setRoot(Start);
     }
 }
 

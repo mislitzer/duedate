@@ -53,7 +53,7 @@ export class Register {
             .then(data => {
                 console.log(data);
                 if (data && data != null) {
-                    this.showToast("Thank you! Please look at your mail inbox to verify your register process!", 6000, "middle");
+                    this.showToast("Thank you! Please look at your mail inbox to verify your register process!", 6000, "bottom");
                     this.navCtrl.popToRoot();
                 }
             })
