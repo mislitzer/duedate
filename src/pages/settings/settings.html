@@ -19,7 +19,7 @@
 <ion-content>
     <ion-list>
         <ion-list-header class="listHeader">
-            <p>{{'SETTINGS.ACCOUNT_SETTINGS' | translate}}</p>
+            {{'SETTINGS.ACCOUNT_SETTINGS' | translate}}
         </ion-list-header>
 
         <ion-item *ngIf="user.student">
@@ -63,14 +63,14 @@
         </ion-item>
     </ion-list>
 
-    <ion-list radio-group [(ngModel)]="standardReminder" *ngIf="user.student">
+    <ion-list radio-group  *ngIf="user.student">
         <ion-list-header class="listHeader">
             <ion-label>{{'SETTINGS.STANDARD' | translate}}</ion-label>
         </ion-list-header>
 
         <ion-item class="centeredList">
             <ion-label>5 Minuten</ion-label>
-            <ion-radio value="select1" selected="selected"></ion-radio>
+            <ion-radio value="select1" checked="true"></ion-radio>
         </ion-item>
 
         <ion-item class="centeredList">

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Configuration} from "../../environments/configuration";
+import {Configuration} from "../../environments/configuration"
+import {DeadlinesPage} from "../deadlines/deadlines"
 
 /**
  * Generated class for the ModuleDetail page.
@@ -14,12 +15,22 @@ import {Configuration} from "../../environments/configuration";
 })
 export class ModuleDetail {
 
-  module: any;
+  module: any = {};
+  public user: any;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration) {
     if(this.config.getModule() != null){
       this.module = this.config.getModule();
     }
+
+    this.user = config.getUser();
+
+  }
+
+
+  addDeadline(event, module){
+    this.navCtrl.push(DeadlinesPage);
   }
 
 }

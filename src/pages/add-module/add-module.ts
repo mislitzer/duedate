@@ -19,7 +19,7 @@ export class AddModulePage {
   module: any = {};
   user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration, public addModuleService: AddModuleService,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration, public addModuleService: AddModuleService) {
     this.user = this.config.getUser();
     console.log(this.user.user_Id);
   }

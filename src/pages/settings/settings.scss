@@ -6,4 +6,13 @@ page-settings {
   .duedate-toggle .toggle-checked .toggle-icon {
     background-color: $button_main;
   }
+
+
+  .item-radio-checked.item-ios ion-label{
+    color: $button_main;
+  }
+
+  .radio-ios .radio-checked .radio-inner {
+    border-color: $button_main;
+  }
 }
