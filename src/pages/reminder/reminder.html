@@ -1,13 +1,20 @@
 <ion-header>
-    <ion-searchbar class="searchBar"
-      [(ngModel)]="myInput"
-      [showCancelButton]="shouldShowCancel"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)">
-    </ion-searchbar>
+  <ion-row >
+    <div class="flexbar">
+      <ion-searchbar class="searchBar flexitem1"
+                     [(ngModel)]="myInput"
+                     [showCancelButton]="shouldShowCancel"
+                     (ionInput)="onInput($event)"
+                     (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <div class="addIconHeader flexitem2" *ngIf="!user.student">
+        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+      </div>
+    </div>
+
+  </ion-row>
+
 </ion-header>
-
-
 <ion-content>
 
 

@@ -1,13 +1,15 @@
 <ion-header>
   <ion-row >
-    <ion-searchbar class="searchBar searchBarTeacher"
-      [(ngModel)]="myInput"
-      [showCancelButton]="shouldShowCancel"
-      (ionInput)="onInput($event)"
-      (ionCancel)="onCancel($event)">
-    </ion-searchbar>
-    <div class="addIconHeader" *ngIf="!user.student">
-      <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+    <div class="flexbar">
+      <ion-searchbar class="searchBar flexitem1"
+        [(ngModel)]="myInput"
+        [showCancelButton]="shouldShowCancel"
+        (ionInput)="onInput($event)"
+        (ionCancel)="onCancel($event)">
+      </ion-searchbar>
+      <div class="addIconHeader flexitem2" *ngIf="!user.student">
+        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+      </div>
     </div>
 
   </ion-row>
@@ -24,11 +26,11 @@
     <ion-item *ngFor="let module of modules" value="module">
 
       <ion-label class="taskHeader" (click)="goToDetail($event, module)">
-        {{module.name}}
+        {{module.module_Name}}
       </ion-label>
 
       <ion-label item-right>
-       {{ module.teacher}}
+       {{ module.user.name}}
       </ion-label>
 
       <ion-icon item-right name="md-school"></ion-icon>

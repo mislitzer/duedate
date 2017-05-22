@@ -16,14 +16,14 @@
         "COURSE": "Course"
     },
     "MODULES-DETAIL": {
-    	"TITLE": "Some Headlines",
+    	"TITLE": "Deadlines",
       "LABEL2": "Next Label"
     },
     "ADD-MODULE":{
       "TITLE": "create module",
       "LIST-TITLE": "new module",
       "NAME": "Name:",
-      "SEMESTER": "Semester:"
+      "DESCRIPTION": "Short description:"
     },
     "DEADLINES": {
       "TITLE": "add deadline",
@@ -48,5 +48,8 @@
       "CLASS": "Class",
       "STANDARD": "Standard Reminder",
       "LOGOUT": "Logout"
-    }
+    },
+    "GENERAL":{
+      "LOADING":"Please wait..."
+  }
 }

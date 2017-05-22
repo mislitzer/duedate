@@ -1,10 +1,16 @@
 
 
 <ion-header>
-  <ion-navbar>
-    <ion-title class="addModuleTitle" item-left>{{module.name}}</ion-title>
+  <div class="flexbar">
 
-  </ion-navbar>
+    <ion-navbar>
+      <ion-title class="addModuleTitle flexitem1" item-left>{{module.module_Name}}</ion-title>
+    </ion-navbar>
+
+    <div class="addIconHeader flexitem2" *ngIf="!user.student">
+      <ion-icon class="addIcon" item-right name="md-add-circle" (click)="addDeadline($event, module)"></ion-icon>
+    </div>
+  </div>
 </ion-header>
 
 
@@ -18,12 +24,12 @@
     <ion-item *ngFor="let deadline of deadlines" value="deadline">
 
       <ion-label>
-        <span class="taskHeader">{{deadline.title}}</span> <br/>
-        <span class="taskDescription">{{deadline.klas}}</span>
+        <span class="taskHeader">{{deadline.name}}</span> <br/>
+        <span class="taskDescription">{{deadline.description}}</span>
       </ion-label>
 
       <ion-label item-right>
-        {{ deadline.dueDate | date:'dd.MM.yyyy'}}
+        {{ deadline.date | date:'dd.MM.yyyy'}}
       </ion-label>
 
       <ion-icon item-right name="md-trash"></ion-icon>

@@ -1,13 +1,41 @@
 page-deadlines {
 
+
+  .checkButtons{
+    font-size:2em;
+    margin: 7px;
+    background-color:$button_main;
+  }
+
+  .lastListItem{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  .submit{
+    background-color:green;
+  }
+
+  .flexButtons{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin: 13px 10px;
+  }
+
+  .item1{
+    order:1;
+    width:100%;
+    padding:0;
+  }
+
+  .item2{
+    order:2;
+    width:100%;
+    padding:0;
+  }
+
+
+
 }
 
-.checkButtons{
-  font-size:5em;
-  margin: 7px;
-}
-
-.lastListItem{
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
