@@ -1,55 +1,55 @@
 {
-	"HELLO":"Test",
-    "START": {
-      "WELCOME": "WELCOME",
-      "LOGIN": "Login",
-      "REGISTER": "Register"
-    },
-    "REGISTER": {
-      "EMAIL": "Email",
-      "USERNAME": "Username",
-      "PASSWORD": "Password",
-      "PASSWORD_REPEAT": "Repeat Password",
-      "REGISTER": "Register"
-    },
-    "HOME": {
-        "COURSE": "Course"
-    },
-    "MODULES-DETAIL": {
-    	"TITLE": "Deadlines",
-      "LABEL2": "Next Label"
-    },
-    "ADD-MODULE":{
-      "TITLE": "create module",
-      "LIST-TITLE": "new module",
-      "NAME": "Name:",
-      "DESCRIPTION": "Short description:"
-    },
-    "DEADLINES": {
-      "TITLE": "add deadline",
-      "NAME" : "Name:",
-      "TOPIC" : "Topic:",
-      "DATE" : "Date:",
-      "TIME" :  "Time:",
-      "CLASS" : "Class:",
-      "GO" : "weiter",
-      "LIST-TITLE" : "Deadline"
-    },
-    "REMINDER":{
-      "NEXT-WEEK": "next week",
-      "TOMORROW": "tomorrow"
-    },
-    "SETTINGS":{
-      "ACCOUNT_SETTINGS": "Account Settings",
-      "REG_NUMBER": "Registration number:",
-      "EMAIL": "Email:",
-      "CHANGE_PASSWORD": "Change Password",
-      "INFOS": "Alerts",
-      "CLASS": "Class",
-      "STANDARD": "Standard Reminder",
-      "LOGOUT": "Logout"
-    },
-    "GENERAL":{
-      "LOADING":"Please wait..."
+  "HELLO": "Test",
+  "START": {
+    "WELCOME": "WELCOME",
+    "LOGIN": "Login",
+    "REGISTER": "Register"
+  },
+  "REGISTER": {
+    "EMAIL": "Email",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "PASSWORD_REPEAT": "Repeat Password",
+    "REGISTER": "Register"
+  },
+  "HOME": {
+    "COURSE": "Course"
+  },
+  "MODULES-DETAIL": {
+    "TITLE": "Deadlines",
+    "LABEL2": "Next Label"
+  },
+  "ADD-MODULE": {
+    "TITLE": "create module",
+    "LIST-TITLE": "new module",
+    "NAME": "Name:",
+    "DESCRIPTION": "Short description:"
+  },
+  "DEADLINES": {
+    "TITLE": "add deadline",
+    "NAME": "Name:",
+    "TOPIC": "Topic:",
+    "DATE": "Date:",
+    "TIME": "Time:",
+    "CLASS": "Class:",
+    "GO": "weiter",
+    "LIST-TITLE": "Deadline"
+  },
+  "REMINDER": {
+    "NEXT-WEEK": "next week",
+    "TOMORROW": "tomorrow"
+  },
+  "SETTINGS": {
+    "ACCOUNT_SETTINGS": "Account Settings",
+    "REG_NUMBER": "Registration number:",
+    "EMAIL": "Email:",
+    "CHANGE_PASSWORD": "Change Password",
+    "INFOS": "Alerts",
+    "CLASS": "Class",
+    "STANDARD": "Standard Reminder",
+    "LOGOUT": "Logout"
+  },
+  "GENERAL": {
+    "LOADING": "Please wait..."
   }
 }

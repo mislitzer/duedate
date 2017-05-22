@@ -5,24 +5,27 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {TranslateService} from '@ngx-translate/core';
 
 import {Start} from "../pages/start/start";
+import {Configuration} from "../environments/configuration";
 
 
 @Component({
-  templateUrl: 'app.html'
+    templateUrl: 'app.html'
 })
 export class DueDate {
-  rootPage:any = Start;
+    rootPage: any = Start;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService) {
-    platform.ready().then(() => {
-      statusBar.styleDefault();
-      splashScreen.hide();
+    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService, public config: Configuration) {
+        platform.ready().then(() => {
+            statusBar.styleDefault();
+            splashScreen.hide();
 
-      //Sprache setzen
-      translate.setDefaultLang('en');
-      translate.use('en');
+            //Sprache setzen
+            translate.setDefaultLang('en');
+            translate.use('en');
 
-
-    });
-  }
+            translate.get('GENERAL').subscribe((res: string) => {
+                config.setLabels(res);
+            });
+        });
+    }
 }

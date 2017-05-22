@@ -5,8 +5,9 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Configuration {
     private _user:any;
-    private _serviceBase:string = "https://85a0c866.ngrok.io";
+    private _serviceBase:string = "http://localhost:9000";
     private _module:any;
+    private _labels:any;
 
     setModule(data){
       this._module = data;
@@ -30,5 +31,13 @@ export class Configuration {
 
     getServiceBase() {
         return this._serviceBase;
+    }
+
+    getLabels() {
+        return this._labels;
+    }
+
+    setLabels(data) {
+        this._labels = data;
     }
 }

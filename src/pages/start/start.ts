@@ -8,32 +8,32 @@ import {Configuration} from "../../environments/configuration";
 
 
 @Component({
-  selector: 'page-start',
-  templateUrl: 'start.html',
+    selector: 'page-start',
+    templateUrl: 'start.html',
 })
 export class Start {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage, public config: Configuration) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, storage: Storage, public config: Configuration) {
 
-    storage.get('user').then((val) => {
-      if (val != null) {
-        this.config.setUser(JSON.parse(val));
-        this.navCtrl.setRoot(TabsPage);
-      }
+        storage.get('user').then((val) => {
+            if (val != null) {
+                this.config.setUser(JSON.parse(val));
+                this.navCtrl.setRoot(TabsPage);
+            }
 
-    })
-  }
+        })
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Start');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad Start');
+    }
 
-  openLogin() {
-    this.navCtrl.push(LoginPage);
-  }
+    openLogin() {
+        this.navCtrl.push(LoginPage);
+    }
 
-  openRegister() {
-    this.navCtrl.push(Register);
-  }
+    openRegister() {
+        this.navCtrl.push(Register);
+    }
 
 }
