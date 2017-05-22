@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {Configuration} from "../../environments/configuration";
+
 
 @Component({
   selector: 'page-reminder',
@@ -7,9 +9,13 @@ import { NavController } from 'ionic-angular';
 })
 export class ReminderPage {
 
+  public user:any;
+
   public modules:Array<{title:string, name:string,dueDate:Date}>;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public config: Configuration) {
+
+    this.user = config.getUser();
 
     this.modules = [
       {
@@ -28,3 +34,4 @@ export class ReminderPage {
 
 
 }
+

@@ -2,4 +2,8 @@ page-settings {
   .centeredList{
     text-align:center;
   }
+
+  .duedate-toggle .toggle-checked .toggle-icon {
+    background-color: $button_main;
+  }
 }

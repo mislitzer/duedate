@@ -10,32 +10,32 @@
     </div>
   <form (ngSubmit)="registerUser()">
     <ion-list>
-      <ion-item>
+      <ion-item class="login-feld">
         <ion-label>
           <ion-icon name="ios-mail-outline"></ion-icon>
         </ion-label>
         <ion-input clearInput type="email" name="email" [(ngModel)]="register.email" placeholder="{{'REGISTER.EMAIL' | translate}}"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="login-feld">
         <ion-label>
           <ion-icon name="ios-person-outline"></ion-icon>
         </ion-label>
         <ion-input clearInput type="text" name="username" [(ngModel)]="register.name" placeholder="{{'REGISTER.USERNAME' | translate}}"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="login-feld">
         <ion-label>
           <ion-icon name="ios-lock"></ion-icon>
         </ion-label>
         <ion-input clearInput type="password" name="password" [(ngModel)]="register.password" placeholder="{{'REGISTER.PASSWORD' | translate}}"></ion-input>
       </ion-item>
-      <ion-item>
+      <ion-item class="login-feld">
         <ion-label>
           <ion-icon name="ios-lock"></ion-icon>
         </ion-label>
         <ion-input clearInput type="password" name="passwordRepeat" [(ngModel)]="register.passwordrpt" placeholder="{{'REGISTER.PASSWORD_REPEAT' | translate}}"></ion-input>
       </ion-item>
 
-      <button class="dd-button" ion-button full type="submit">{{'REGISTER.REGISTER' | translate}}</button>
+      <button class="dd-button button-register" ion-button full type="submit">{{'REGISTER.REGISTER' | translate}}</button>
     </ion-list>
   </form>
 </ion-content>

@@ -25,3 +25,4 @@ export class SettingsPage {
         this.navCtrl.setRoot(Start);
     }
 }
+
