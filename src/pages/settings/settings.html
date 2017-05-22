@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-row >
-    <div class="flexbar">
-      <ion-searchbar class="searchBar flexitem1"
-                     [(ngModel)]="myInput"
-                     [showCancelButton]="shouldShowCancel"
-                     (ionInput)="onInput($event)"
-                     (ionCancel)="onCancel($event)">
-      </ion-searchbar>
-      <div class="addIconHeader flexitem2" *ngIf="!user.student">
-        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
-      </div>
-    </div>
+    <ion-row>
+        <div class="flexbar">
+            <ion-searchbar class="searchBar flexitem1"
+                           [(ngModel)]="myInput"
+                           [showCancelButton]="shouldShowCancel"
+                           (ionInput)="onInput($event)"
+                           (ionCancel)="onCancel($event)">
+            </ion-searchbar>
+            <div class="addIconHeader flexitem2" *ngIf="!user.student">
+                <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+            </div>
+        </div>
 
-  </ion-row>
+    </ion-row>
 
 </ion-header>
 
@@ -44,13 +44,8 @@
             </ion-icon>
         </ion-item>
 
-<<<<<<< HEAD
 
-
-      <ion-item *ngIf="user.student">
-=======
         <ion-item *ngIf="user.student" class="duedate-toggle">
->>>>>>> UIbranche
             <ion-label>
                 {{'SETTINGS.INFOS' | translate}}
             </ion-label>
@@ -71,7 +66,7 @@
         </ion-item>
     </ion-list>
 
-    <ion-list radio-group  *ngIf="user.student">
+    <ion-list radio-group *ngIf="user.student">
         <ion-list-header class="listHeader">
             <ion-label>{{'SETTINGS.STANDARD' | translate}}</ion-label>
         </ion-list-header>
