@@ -1,24 +1,27 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController} from 'ionic-angular';
+import {Configuration} from "../../environments/configuration";
+import {Start} from "../start/start";
+import {Storage} from "@ionic/storage";
 
 @Component({
-  selector: 'page-settings',
-  templateUrl: 'settings.html'
+    selector: 'page-settings',
+    templateUrl: 'settings.html'
 })
 export class SettingsPage {
 
-  public student:{id:string, email:string, klas:string};
+    public user;
 
+    constructor(public navCtrl: NavController, public config: Configuration, public storage: Storage) {
+        this.user = config.getUser();
+    }
 
-  constructor(public navCtrl: NavController) {
+    logoutUser():void {
+        //Local Storage und Globales User Objekt entfernen
+        this.storage.set("user", null);
+        this.config.setUser(null);
 
-    this.student =
-      {
-        id:"3405983405",
-        email:"student@mail.com",
-        klas:"IT05"
-      }
-
-  }
-
+        //User auf Home weiterleiten
+        this.navCtrl.setRoot(Start);
+    }
 }

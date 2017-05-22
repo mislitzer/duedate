@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Configuration} from "../environments/configuration";
+import {DuedateHelpers} from "../environments/helpers";
 
 @Injectable()
 export class RegisterService {
     data: any;
 
-    constructor(public http: Http, public config: Configuration) {
+    constructor(public http: Http, public config: Configuration, public helpers: DuedateHelpers) {
         this.data = null;
     }
 
@@ -22,7 +23,12 @@ export class RegisterService {
         let posts = "";
         for (let key in params) {
             if (key != "" && key != "passwordrpt") {
-                posts += "&" + key + "=" + params[key];
+                if (key == "password") {
+                    posts += "&" + key + "=" + this.helpers.generatePasswordHash(params[key]);
+                }
+                else {
+                    posts += "&" + key + "=" + params[key];
+                }
             }
         }
 
