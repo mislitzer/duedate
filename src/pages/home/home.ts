@@ -21,34 +21,12 @@ export class HomePage {
     console.log(this.user);
     this.getModule();
 
-    /*this.modules = [
-      {
-        name:"Modul 1",
-        teacher:"Lektor 1"
-      },
-      {
-        name:"Modul 2",
-        teacher: "Lektor 1"
-      },
-      {
-        name:"Modul 2",
-        teacher: "Lektor 1"
-      },
-      {
-        name:"Modul 2",
-        teacher: "Lektor 1"
-      },
-      {
-        name:"Modul 2",
-        teacher: "Lektor 1"
-      }
-    ]*/
-
   }
 
   getModule(){
-    this.homeService.load(this.user.id)
+    this.homeService.load(this.user.user_Id)
       .then(data => {
+        this.modules = JSON.parse(data._body);
         console.log(data);
       });
 

@@ -21,10 +21,11 @@ export class AddModulePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration, public addModuleService: AddModuleService,) {
     this.user = this.config.getUser();
+    console.log(this.user.user_Id);
   }
 
   sendModule(){
-    this.module.user_id = this.user.id;
+    this.module.user_id = this.user.user_Id;
     this.addModuleService.load(this.module)
       .then(data => {
       console.log(data);
