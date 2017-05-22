@@ -17,6 +17,7 @@ export class ModuleDetail {
 
   module: any = {};
   public user: any;
+  public deadlines:Array<{name:string,description:string,date:Date}>;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration) {
@@ -25,6 +26,18 @@ export class ModuleDetail {
     }
 
     this.user = config.getUser();
+    this.deadlines =[
+      {
+        name:"Blabla",
+        description:"Assignment einreichen",
+        date: new Date("February 4, 2016 10:13:00")
+      },
+      {
+        name:"Blabla",
+        description:"Assignment einreichen",
+        date: new Date("February 4, 2016 10:13:00")
+      }
+    ]
 
   }
 

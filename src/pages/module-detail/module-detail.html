@@ -24,12 +24,12 @@
     <ion-item *ngFor="let deadline of deadlines" value="deadline">
 
       <ion-label>
-        <span class="taskHeader">{{deadline.title}}</span> <br/>
-        <span class="taskDescription">{{deadline.klas}}</span>
+        <span class="taskHeader">{{deadline.name}}</span> <br/>
+        <span class="taskDescription">{{deadline.description}}</span>
       </ion-label>
 
       <ion-label item-right>
-        {{ deadline.dueDate | date:'dd.MM.yyyy'}}
+        {{ deadline.date | date:'dd.MM.yyyy'}}
       </ion-label>
 
       <ion-icon item-right name="md-trash"></ion-icon>
