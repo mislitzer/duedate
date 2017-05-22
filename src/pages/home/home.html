@@ -26,11 +26,11 @@
     <ion-item *ngFor="let module of modules" value="module">
 
       <ion-label class="taskHeader" (click)="goToDetail($event, module)">
-        {{module.name}}
+        {{module.module_Name}}
       </ion-label>
 
       <ion-label item-right>
-       {{ module.teacher}}
+       {{ module.user.name}}
       </ion-label>
 
       <ion-icon item-right name="md-school"></ion-icon>

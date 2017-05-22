@@ -19,8 +19,11 @@ export class HomePage {
 
     this.user = config.getUser();
     console.log(this.user);
-    this.getModule();
 
+  }
+
+  ionViewWillEnter(){
+    this.getModule();
   }
 
   getModule(){
