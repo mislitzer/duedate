@@ -4,7 +4,7 @@ import {Configuration} from "../environments/configuration";
 import { Http, Headers } from '@angular/http';
 
 @Injectable()
-export class HomeService {
+export class DeadlinesService {
 
   data: any;
 
@@ -20,23 +20,30 @@ export class HomeService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
-    let posts = "id="+ params;
+    let posts = "";
+    for (let key in params) {
+      if (key != "" ){
+        posts += "&" + key + "=" + params[key];
 
+      }
+    }
+
+    posts = posts.replace("&", "");
     console.log(posts);
 
     return new Promise(resolve => {
-      this.http.post(this.config.getServiceBase() + "/modulelist", posts, {
+      this.http.post(this.config.getServiceBase() + "/deadline", posts, {
         headers: headers
       })
         .map(res => res)
         .subscribe(data => {
           //Data return
           this.data = data;
-          console.log(data);
           resolve(this.data);
           this.data = null;
         });
     });
 
   }
+
 }

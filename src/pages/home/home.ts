@@ -13,7 +13,7 @@ export class HomePage {
 
   public user:any;
 
-  public modules:Array<{name:string,teacher:string}>;
+  public modules:any;
 
   constructor(public navCtrl: NavController, public config: Configuration, public homeService: HomeService) {
 
