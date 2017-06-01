@@ -42,7 +42,7 @@ export class AddModulePage {
 
     presentToast() {
         let toast = this.toastCtrl.create({
-            message: 'Module name is required!',
+            message: this.labels.MISTAKE_ADDMODULE,
             duration: 3000,
             position: 'bottom'
         });

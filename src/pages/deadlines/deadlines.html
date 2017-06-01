@@ -15,45 +15,47 @@
 
 <ion-content>
 
-  <ion-list>
+  <form (ngSubmit)="sendDeadline()">
+    <ion-list>
 
-    <ion-list-header class="listHeader">
-      {{ 'DEADLINES.LIST-TITLE' | translate }}
-    </ion-list-header>
+      <ion-list-header class="listHeader">
+        {{ 'DEADLINES.LIST-TITLE' | translate }}
+      </ion-list-header>
 
-    <ion-item>
-      <ion-label floating>
-        {{ 'DEADLINES.NAME' | translate }}
-      </ion-label>
-      <ion-input type="text" id="deadlineName"></ion-input>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>
+          {{ 'DEADLINES.NAME' | translate }}
+        </ion-label>
+        <ion-input type="text" id="deadlineName" name="name" [(ngModel)]="deadline.name"></ion-input>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>
-        {{ 'DEADLINES.DATE' | translate }}
-      </ion-label>
-      <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY"></ion-datetime>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>
+          {{ 'DEADLINES.DATE' | translate }}
+        </ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate" [(ngModel)]="deadline.deadlinedate"></ion-datetime>
+      </ion-item>
 
-    <ion-item>
-      <ion-label floating>
-        {{ 'DEADLINES.TIME' | translate }}
-      </ion-label>
-      <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm"></ion-datetime>
-    </ion-item>
+      <ion-item>
+        <ion-label floating>
+          {{ 'DEADLINES.TIME' | translate }}
+        </ion-label>
+        <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime" [(ngModel)]="deadline.deadlinetime"></ion-datetime>
+      </ion-item>
 
-    <ion-item class="lastListItem">
-      <ion-label floating>
-        {{ 'DEADLINES.CLASS' | translate }}
-      </ion-label>
-      <ion-input type="text" id="class" (keyup)="autoCompleteClass($event)"></ion-input>
-    </ion-item>
+      <ion-item class="lastListItem">
+        <ion-label floating>
+          {{ 'DEADLINES.CLASS' | translate }}
+        </ion-label>
+        <ion-input type="text" id="class" (keyup)="autoCompleteClass($event)"></ion-input>
+      </ion-item>
 
-  </ion-list>
+    </ion-list>
 
-  <div class="flexButtons">
-    <button ion-button class="checkButtons item1"><ion-icon name="close"></ion-icon></button>
-    <button ion-button class="checkButtons submit item2"><ion-icon name="checkmark"></ion-icon></button>
-  </div>
+    <div class="flexButtons">
+      <button ion-button class="checkButtons item1" (click)="abort()"><ion-icon name="close"></ion-icon></button>
+      <button ion-button class="checkButtons submit item2" type="submit"><ion-icon name="checkmark"></ion-icon></button>
+    </div>
+  </form>
 
 </ion-content>

@@ -50,6 +50,8 @@
     "LOGOUT": "Logout"
   },
   "GENERAL": {
-    "LOADING": "Please wait..."
+    "LOADING": "Please wait...",
+    "MISTAKE_ADDMODULE": "Module name is required!",
+    "MISTAKE_ADDDEADLINES": "Deadlines name is required!"
   }
 }
