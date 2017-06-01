@@ -1,18 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>{{'START.WELCOME' | translate}}</ion-title>
-  </ion-navbar>
-</ion-header>
 
 <ion-content padding>
     <div class="app-image">
         <img src="assets/logo-mobile-red.svg" />
     </div>
+
+
+  <div class="welcome">
+    <p>{{'START.WELCOME' | translate}}</p>
+  </div>
+
 </ion-content>
 
 <ion-footer>
   <div class="footer-navigation">
-    <button class="login-button dd-button" ion-button full (tap)="openLogin()">{{'START.LOGIN' | translate}}</button>
-    <button class="dd-button" ion-button full (tap)="openRegister()">{{'START.REGISTER' | translate}}</button>
+    <button class="login-button dd-button button-start" ion-button full (tap)="openLogin()">{{'START.LOGIN' | translate}}</button>
+    <button class="dd-button button-start" ion-button full (tap)="openRegister()">{{'START.REGISTER' | translate}}</button>
   </div>
 </ion-footer>

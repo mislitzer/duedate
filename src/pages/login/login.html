@@ -11,10 +11,16 @@
   <form (ngSubmit)="loginUser()">
     <ion-list>
       <ion-item class="login-feld" >
+        <ion-label>
+          <ion-icon name="ios-person-outline"></ion-icon>
+        </ion-label>
         <ion-input type="text" name="name" [(ngModel)]="login.name" placeholder="Name or E-Mail"></ion-input>
       </ion-item>
 
       <ion-item class="login-feld" >
+        <ion-label>
+          <ion-icon name="ios-lock"></ion-icon>
+        </ion-label>
         <ion-input type="password" name="password" [(ngModel)]="login.password" placeholder="Password"></ion-input>
       </ion-item>
       <button class="button-login dd-button" ion-button full type="submit">{{'START.LOGIN' | translate}}</button>
