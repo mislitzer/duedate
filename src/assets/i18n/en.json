@@ -17,7 +17,8 @@
   },
   "MODULES-DETAIL": {
     "TITLE": "Deadlines",
-    "LABEL2": "Next Label"
+    "LABEL2": "Next Label",
+    "ADDMODULE": "Add to Modules"
   },
   "ADD-MODULE": {
     "TITLE": "create module",
