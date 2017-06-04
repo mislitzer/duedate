@@ -13,27 +13,42 @@ export class HomePage {
 
   public user:any;
 
-  public modules:Array<{name:string,teacher:string}>;
+  //public modules:any;
+
+  public modules:Array<{name:string,description:string}>;
+
 
   constructor(public navCtrl: NavController, public config: Configuration, public homeService: HomeService) {
 
     this.user = config.getUser();
     console.log(this.user);
 
+    this.modules=[
+      {
+        name:"Blabla",
+        description:"Assignment einreichen",
+      },
+      {
+        name:"Blabla",
+        description:"Assignment einreichen",
+      }
+    ]
+
+
   }
 
   ionViewWillEnter(){
-    this.getModule();
+    //this.getModule();
   }
 
-  getModule(){
+  /*getModule(){
     this.homeService.load(this.user.user_Id)
       .then(data => {
         this.modules = JSON.parse(data._body);
         console.log(data);
       });
 
-  }
+  }*/
 
   clicked(event){
     this.navCtrl.push(AddModulePage);

@@ -35,6 +35,7 @@ import {AddModuleService} from "../providers/add-module";
 import {HomeService} from "../providers/home";
 import {DuedateHelpers} from "../environments/helpers";
 import {ChangePwService} from "../providers/changePw";
+import {DeadlinesService} from "../providers/deadlines";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http);
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: Http) {
     HomeService,
     DuedateHelpers,
     ChangePwService,
+    DeadlinesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
