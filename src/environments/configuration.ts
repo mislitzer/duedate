@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Configuration {
     private _user:any;
-    private _serviceBase:string = "http://localhost:9000";
+    private _serviceBase:string = "http://duedate.web.fh-kufstein.ac.at";
     private _module:any;
     private _labels:any;
 
