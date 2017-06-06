@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class Configuration {
     private _user:any;
     private _serviceBase:string = "http://duedate.web.fh-kufstein.ac.at";
-    //private _serviceBase:string = "http://localhost:9000";
+    //private _serviceBase:string = "http://5df10b8d.ngrok.io";
     private _module:any;
     private _labels:any;
     private _myModules:any;

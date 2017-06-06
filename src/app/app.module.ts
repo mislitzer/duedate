@@ -21,8 +21,9 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HttpModule, Http} from '@angular/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+//import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+//import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 
 import {AddModulePage} from "../pages/add-module/add-module";
 
@@ -45,7 +46,7 @@ import {CoursesService} from "../providers/loadCourses";
 import {LoadDeadLinesService} from "../providers/loadDeadlines";
 
 export function HttpLoaderFactory(http: Http) {
-    return new TranslateHttpLoader(http);
+    return new TranslateStaticLoader(http, './assets/lang', '.json');
 }
 
 @NgModule({
@@ -69,11 +70,9 @@ export function HttpLoaderFactory(http: Http) {
         BrowserModule,
         HttpModule,
         TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [Http]
-            }
+            provide: TranslateLoader,
+            useFactory: (HttpLoaderFactory),
+            deps: [Http]
         }),
         IonicModule.forRoot(DueDate),
         IonicStorageModule.forRoot()

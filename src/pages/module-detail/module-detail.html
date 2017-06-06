@@ -21,18 +21,26 @@
             {{"MODULES-DETAIL.TITLE" | translate}}
         </ion-list-header>
 
-        <ion-item *ngFor="let deadline of deadlines" value="deadline">
-            <ion-label>
-                <span class="taskHeader">{{deadline.deadline_name}}</span> <br/>
-                <span class="taskDescription">{{deadline.deadline_description}}</span>
-            </ion-label>
+        <div *ngIf="deadlines">
+            <ion-item *ngFor="let deadline of deadlines" value="deadline">
+                <ion-label>
+                    <span class="taskHeader">{{deadline.deadline_name}}</span> <br/>
+                    <span class="taskDescription">{{deadline.deadline_description}}</span>
+                </ion-label>
 
-            <ion-label class="deadline-right" item-right>
-                <!--{{ deadline.date | date:'dd.MM.yyyy'}}-->
-                10.10.2017
-                <ion-icon *ngIf="!user.student" item-right name="md-trash" class="delete-icon"></ion-icon>
-            </ion-label>
-        </ion-item>
+                <ion-label class="deadline-right" item-right>
+                    <!--{{ deadline.date | date:'dd.MM.yyyy'}}-->
+                    10.10.2017
+                    <ion-icon *ngIf="!user.student" item-right name="md-trash" class="delete-icon"></ion-icon>
+                </ion-label>
+            </ion-item>
+        </div>
+        <div *ngIf="!deadlines">
+            <ion-item>
+                {{'MODULES-DETAIL.NO_DEADLINES' | translate}}
+            </ion-item>
+        </div>
+
         <div padding>
             <button class="dd-button" ion-button full type="submit" (tap)="mapModuleUser()" *ngIf="showAdd">{{'MODULES-DETAIL.ADDMODULE' | translate}}</button>
         </div>

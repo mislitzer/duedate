@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Platform} from 'ionic-angular';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
-import {TranslateService} from '@ngx-translate/core';
+import {TranslateService} from 'ng2-translate';
 
 import {Start} from "../pages/start/start";
 import {Configuration} from "../environments/configuration";

@@ -41,19 +41,6 @@ export class ModuleDetail {
             this.loadDeadlines();
         });
 
-        this.deadlines = [
-            {
-                name: "Blabla",
-                description: "Assignment einreichen",
-                date: new Date("February 4, 2016 10:13:00")
-            },
-            {
-                name: "Blabla",
-                description: "Assignment einreichen",
-                date: new Date("February 4, 2016 10:13:00")
-            }
-        ]
-
     }
 
     mapModuleUser() {
@@ -75,9 +62,17 @@ export class ModuleDetail {
     }
 
     loadDeadlines() {
-        this.deadlineService.load(this.course, this.module.module_Id, 1).then(data => {
-            this.deadlines = JSON.parse(data._body);
-            console.log(this.deadlines);
+        let isStudent = 1;
+        if (typeof this.course == "undefined" || !this.user.student) {
+            isStudent = 0;
+        }
+        this.deadlineService.load(this.course, this.module.module_Id, isStudent).then(data => {
+            if (data._body.indexOf("Keine Deadlines") == -1) {
+                this.deadlines = JSON.parse(data._body);
+            }
+            else {
+                this.deadlines = null;
+            }
         });
     }
 

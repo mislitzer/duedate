@@ -49,6 +49,8 @@ export class SettingsPage {
     logoutUser():void {
         //Local Storage und Globales User Objekt entfernen
         this.storage.set("user", null);
+        this.storage.set("settingAlert", null);
+        this.storage.set("settingCourse", null);
         this.config.setUser(null);
 
         //User auf Home weiterleiten
@@ -58,7 +60,6 @@ export class SettingsPage {
     loadCourses() {
         this.courseService.load().then(data => {
             this.courses = JSON.parse(data._body);
-            console.log(data._body);
         });
     }
 
