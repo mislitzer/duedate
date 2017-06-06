@@ -13,20 +13,22 @@
         {{'ADD-MODULE.LIST-TITLE' | translate}}
       </ion-list-header>
 
-      <ion-item>
+      <ion-item class="item-padding">
         <ion-label floating>
           {{'ADD-MODULE.NAME' | translate}}
         </ion-label>
         <ion-input type="text" name="name" [(ngModel)]="module.name"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="item-padding">
         <ion-label floating>
           {{'ADD-MODULE.DESCRIPTION' | translate}}
         </ion-label>
         <ion-input type="text" name="description" [(ngModel)]="module.description"></ion-input>
       </ion-item>
+      <div padding>
       <button class="dd-button" ion-button full type="submit">{{'DEADLINES.GO' | translate}}</button>
+        </div>
     </ion-list>
   </form>
 

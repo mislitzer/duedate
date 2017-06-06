@@ -12,9 +12,9 @@
     <form (ngSubmit)="sendDeadline()">
         <ion-list>
 
-            <ion-list-header class="listHeader">
+            <!--<ion-list-header class="listHeader">
                 {{ 'DEADLINES.LIST-TITLE' | translate }}
-            </ion-list-header>
+            </ion-list-header>-->
 
             <ion-item>
                 <ion-label floating>
@@ -31,7 +31,7 @@
             </ion-item>
 
             <ion-item>
-                <ion-label>
+                <ion-label class="label-adapt">
                     {{ 'DEADLINES.DATE' | translate }}
                 </ion-label>
                 <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate"
@@ -39,7 +39,7 @@
             </ion-item>
 
             <ion-item>
-                <ion-label>
+                <ion-label class="label-adapt">
                     {{ 'DEADLINES.TIME' | translate }}
                 </ion-label>
                 <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime"
@@ -59,10 +59,10 @@
 
         <div class="flexButtons">
             <button ion-button class="checkButtons item1" (click)="abort()" type="button">
-                <ion-icon name="close"></ion-icon>
+              Abbrechen
             </button>
             <button ion-button class="checkButtons submit item2" type="submit">
-                <ion-icon name="checkmark"></ion-icon>
+              Erstellen
             </button>
         </div>
     </form>
