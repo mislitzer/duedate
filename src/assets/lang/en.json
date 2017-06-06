@@ -38,7 +38,9 @@
     "CLASS": "Class:",
     "GO": "weiter",
     "LIST-TITLE": "Deadline",
-    "DESCRIPTION": "Description:"
+    "DESCRIPTION": "Description:",
+    "CANCEL": "Cancel",
+    "CREATE": "Create"
   },
   "REMINDER": {
     "NEXT-WEEK": "next week",
