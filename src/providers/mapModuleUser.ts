@@ -4,7 +4,7 @@ import {Configuration} from "../environments/configuration";
 import { Http, Headers } from '@angular/http';
 
 @Injectable()
-export class AddModuleService {
+export class MapModuleService {
 
   data: any;
 
@@ -12,37 +12,25 @@ export class AddModuleService {
     this.data = null;
   }
 
-  load(params) {
+  load(module, isJson) {
     if (this.data) {
       return Promise.resolve(this.data);
     }
 
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
-
-    let posts = "";
-    for (let key in params) {
-      if (key != "" ){
-        posts += "&" + key + "=" + params[key];
-
-      }
+    let moduleId;
+    if (isJson) {
+        moduleId = module.module_Id;
+    }
+    else {
+        moduleId = JSON.parse(module).module_Id;
     }
 
-    posts = posts.replace("&", "");
-
-    if (posts.indexOf("description") == -1) {
-        posts += "&description=";
-    }
-
-    console.log(posts);
+    let userId = this.config.getUser().user_Id;
 
     return new Promise(resolve => {
-      this.http.post(this.config.getServiceBase() + "/module", posts, {
-        headers: headers
-      })
+      this.http.get(this.config.getServiceBase() + "/subscribeModule/" + userId + "/" + moduleId)
         .map(res => res)
         .subscribe(data => {
-          //Data return
           this.data = data;
           resolve(this.data);
           this.data = null;

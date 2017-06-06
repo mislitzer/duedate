@@ -1,43 +1,46 @@
 <ion-header>
-  <ion-row >
-    <div class="flexbar">
-      <ion-searchbar class="searchBar flexitem1"
-        [(ngModel)]="myInput"
-        [showCancelButton]="shouldShowCancel"
-        (ionInput)="onInput($event)"
-        (ionCancel)="onCancel($event)">
-      </ion-searchbar>
-      <div class="addIconHeader flexitem2" *ngIf="!user.student">
-        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
-      </div>
-    </div>
+    <ion-row>
+        <div class="flexbar">
+            <page-search></page-search>
+            <div class="addIconHeader flexitem2" *ngIf="!user.student">
+                <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+            </div>
+        </div>
 
-  </ion-row>
+    </ion-row>
 
 </ion-header>
 
 <ion-content>
 
-  <ion-list>
-    <ion-list-header class="listHeader">
-      {{'HOME.COURSE' | translate}}
-    </ion-list-header>
+    <ion-list>
+        <ion-list-header class="listHeader">
+            {{'HOME.MODULES' | translate}}
+        </ion-list-header>
 
-    <ion-item *ngFor="let module of modules" value="module" (click)="goToDetail($event, module)">
-
-      <ion-label class="taskHeader" >
-        <!--{{module.module_Name}}-->
-        {{module.name}}
-      </ion-label>
-
-      <ion-label item-right>
-       <!--{{ module.user.name}}--->
-        {{module.description}}
-      </ion-label>
-
-      <ion-icon item-right name="md-school"></ion-icon>
-
-    </ion-item>
-
-  </ion-list>
+        <div *ngIf="modules.length">
+            <ion-item-sliding *ngFor="let module of modules" value="module">
+                <ion-item (click)="goToDetail(module)">
+                    <ion-label class="taskHeader">
+                        {{module.module_Name}}
+                    </ion-label>
+                    <ion-label item-right>
+                        {{module.module_description}}
+                    </ion-label>
+                    <ion-icon item-right name="school"></ion-icon>
+                </ion-item>
+                <ion-item-options side="right">
+                    <button class="unsubscribe" color="danger" ion-button (tap)="removeModuleUser(module)">
+                        <span>Unsubscribe</span>
+                        <ion-icon item-right name="remove-circle"></ion-icon>
+                    </button>
+                </ion-item-options>
+            </ion-item-sliding>
+        </div>
+        <div *ngIf="!modules.length">
+            <ion-item>
+                {{'HOME.NOMODS' | translate}}
+            </ion-item>
+        </div>
+    </ion-list>
 </ion-content>

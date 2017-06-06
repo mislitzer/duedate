@@ -1,61 +1,70 @@
-<!--
-  Generated template for the Deadlines page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>{{ 'DEADLINES.TITLE' | translate }}</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>{{ 'DEADLINES.TITLE' | translate }}</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
 
-  <form (ngSubmit)="sendDeadline()">
-    <ion-list>
+    <form (ngSubmit)="sendDeadline()">
+        <ion-list>
 
-      <ion-list-header class="listHeader">
-        {{ 'DEADLINES.LIST-TITLE' | translate }}
-      </ion-list-header>
+            <ion-list-header class="listHeader">
+                {{ 'DEADLINES.LIST-TITLE' | translate }}
+            </ion-list-header>
 
-      <ion-item>
-        <ion-label floating>
-          {{ 'DEADLINES.NAME' | translate }}
-        </ion-label>
-        <ion-input type="text" id="deadlineName" name="name" [(ngModel)]="deadline.name"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label floating>
+                    {{ 'DEADLINES.NAME' | translate }}
+                </ion-label>
+                <ion-input type="text" id="deadlineName" name="name" [(ngModel)]="deadline.name"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating>
-          {{ 'DEADLINES.DATE' | translate }}
-        </ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate" [(ngModel)]="deadline.deadlinedate"></ion-datetime>
-      </ion-item>
+            <ion-item>
+                <ion-label floating>
+                    {{ 'DEADLINES.DESCRIPTION' | translate }}
+                </ion-label>
+                <ion-input type="text" id="deadlineDescription" name="description" [(ngModel)]="deadline.description"></ion-input>
+            </ion-item>
 
-      <ion-item>
-        <ion-label floating>
-          {{ 'DEADLINES.TIME' | translate }}
-        </ion-label>
-        <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime" [(ngModel)]="deadline.deadlinetime"></ion-datetime>
-      </ion-item>
+            <ion-item>
+                <ion-label>
+                    {{ 'DEADLINES.DATE' | translate }}
+                </ion-label>
+                <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate"
+                              [(ngModel)]="deadline.deadlinedate"></ion-datetime>
+            </ion-item>
 
-      <ion-item class="lastListItem">
-        <ion-label floating>
-          {{ 'DEADLINES.CLASS' | translate }}
-        </ion-label>
-        <ion-input type="text" id="class" (keyup)="autoCompleteClass($event)"></ion-input>
-      </ion-item>
+            <ion-item>
+                <ion-label>
+                    {{ 'DEADLINES.TIME' | translate }}
+                </ion-label>
+                <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime"
+                              [(ngModel)]="deadline.deadlinetime"></ion-datetime>
+            </ion-item>
 
-    </ion-list>
+            <ion-item class="lastListItem">
+                <ion-label floating>
+                    {{ 'DEADLINES.CLASS' | translate }}
+                </ion-label>
+                <ion-select [(ngModel)]="deadline.course" name="deadlinecourse">
+                    <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}</ion-option>
+                </ion-select>
+            </ion-item>
 
-    <div class="flexButtons">
-      <button ion-button class="checkButtons item1" (click)="abort()" type="button"><ion-icon name="close"></ion-icon></button>
-      <button ion-button class="checkButtons submit item2" type="submit"><ion-icon name="checkmark"></ion-icon></button>
-    </div>
-  </form>
+        </ion-list>
+
+        <div class="flexButtons">
+            <button ion-button class="checkButtons item1" (click)="abort()" type="button">
+                <ion-icon name="close"></ion-icon>
+            </button>
+            <button ion-button class="checkButtons submit item2" type="submit">
+                <ion-icon name="checkmark"></ion-icon>
+            </button>
+        </div>
+    </form>
 
 </ion-content>
