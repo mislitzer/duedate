@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title class="addModuleTitle"> {{'SUBSCRIBE-MODULE.TITLE' | translate}}</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-list-header class="listHeader">
+            {{'SUBSCRIBE-MODULE.LIST-TITLE' | translate}}
+        </ion-list-header>
+
+        <div *ngIf="foundModules.length">
+            <div *ngFor="let module of foundModules">
+                <ion-item (tap)="showModuleDetail(module)">
+                    <ion-label class="taskHeader">
+                        {{module.module_Name}}
+                    </ion-label>
+                    <ion-label item-right>
+                        {{module.module_description}}
+                    </ion-label>
+                </ion-item>
+            </div>
+        </div>
+        <div *ngIf="!foundModules.length">
+            <ion-item>
+                <ion-label>
+                    No modules found
+                </ion-label>
+            </ion-item>
+        </div>
+        <button class="dd-button" ion-button full type="submit" (click)="closePage()">{{'SUBSCRIBE-MODULE.CLOSE' | translate}}</button>
+    </ion-list>
+</ion-content>

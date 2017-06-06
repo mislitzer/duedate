@@ -3,6 +3,7 @@ import {LoadingController, NavController, NavParams, ToastController} from 'ioni
 import {DeadlinesPage} from "../deadlines/deadlines";
 import {Configuration} from "../../environments/configuration";
 import {AddModuleService} from '../../providers/add-module';
+import {MapModuleService} from "../../providers/mapModuleUser";
 
 
 @Component({
@@ -17,7 +18,13 @@ export class AddModulePage {
     labels:any;
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public config: Configuration, public addModuleService: AddModuleService, public loadingCtrl: LoadingController, private toastCtrl: ToastController) {
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                public config: Configuration,
+                public addModuleService: AddModuleService,
+                public loadingCtrl: LoadingController,
+                private toastCtrl: ToastController,
+                public mapModuleService: MapModuleService) {
         this.user = this.config.getUser();
         this.labels = config.getLabels();
     }
@@ -28,16 +35,25 @@ export class AddModulePage {
             this.module.user_id = this.user.user_Id;
             this.addModuleService.load(this.module)
                 .then(data => {
-                    console.log(data);
                     this.config.setModule(data);
                     this.saveModulLocal(data._body);
-                    this.navCtrl.push(DeadlinesPage);
+                    this.navCtrl.push(DeadlinesPage, {module:JSON.parse(data._body)});
+
+                    this.mapModuleUser(data._body);
+
                     this.loading.dismiss();
                 });
         } else {
             this.presentToast();
             this.navCtrl.push(AddModulePage);
         }
+    }
+
+    mapModuleUser(module) {
+        this.mapModuleService.load(module, false)
+            .then(data => {
+                console.log(data);
+        });
     }
 
     presentToast() {

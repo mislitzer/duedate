@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Configuration} from "../environments/configuration";
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 
 @Injectable()
-export class HomeService {
+export class CoursesService {
 
   data: any;
 
@@ -17,10 +17,8 @@ export class HomeService {
       return Promise.resolve(this.data);
     }
 
-    let userId = this.config.getUser().user_Id;
-
     return new Promise(resolve => {
-      this.http.get(this.config.getServiceBase() + "/modulelist/" + userId)
+      this.http.get(this.config.getServiceBase() + "/courselist")
         .map(res => res)
         .subscribe(data => {
           this.data = data;
@@ -30,4 +28,5 @@ export class HomeService {
     });
 
   }
+
 }

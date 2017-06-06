@@ -6,8 +6,10 @@ import 'rxjs/add/operator/map';
 export class Configuration {
     private _user:any;
     private _serviceBase:string = "http://duedate.web.fh-kufstein.ac.at";
+    //private _serviceBase:string = "http://5df10b8d.ngrok.io";
     private _module:any;
     private _labels:any;
+    private _myModules:any;
 
     setModule(data){
       this._module = data;
@@ -39,5 +41,13 @@ export class Configuration {
 
     setLabels(data) {
         this._labels = data;
+    }
+
+    getMyModules() {
+        return this._myModules;
+    }
+
+    setMyModules(data) {
+        this._myModules = data;
     }
 }

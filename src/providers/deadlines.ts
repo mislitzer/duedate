@@ -12,7 +12,7 @@ export class DeadlinesService {
     this.data = null;
   }
 
-  load(params) {
+  load(params, moduleId) {
     if (this.data) {
       return Promise.resolve(this.data);
     }
@@ -22,13 +22,14 @@ export class DeadlinesService {
 
     let posts = "";
     for (let key in params) {
-      if (key != "" ){
+      if (key != ""){
         posts += "&" + key + "=" + params[key];
-
       }
     }
 
     posts = posts.replace("&", "");
+
+    posts += "&id=" + this.config.getUser().user_Id + "&moduleId=" + moduleId;
     console.log(posts);
 
     return new Promise(resolve => {

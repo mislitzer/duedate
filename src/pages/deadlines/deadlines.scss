@@ -2,9 +2,8 @@ page-deadlines {
 
 
   .checkButtons{
-    font-size:2em;
     margin: 7px;
-    background-color:$button_main;
+    padding: 1.4em 0;
   }
 
   .lastListItem{
@@ -26,16 +25,23 @@ page-deadlines {
   .item1{
     order:1;
     width:100%;
-    padding:0;
+    background-color:#e6e6e6;
+    color:#747474;
   }
 
   .item2{
     order:2;
     width:100%;
-    padding:0;
   }
 
 
+  .label-adapt{
+    margin-top:1.5em;
+  }
+
+  .item-block {
+    min-height: 7rem;
+  }
 
 }
 

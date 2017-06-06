@@ -1,61 +1,75 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { AddModulePage } from '../add-module/add-module'
+import {Component} from '@angular/core';
+import {NavController, ToastController} from 'ionic-angular';
+import {AddModulePage} from '../add-module/add-module'
 import {ModuleDetail} from '../module-detail/module-detail'
 import {Configuration} from "../../environments/configuration";
-import { HomeService } from '../../providers/home';
+import {HomeService} from '../../providers/home';
+import {RemoveUserModuleService} from "../../providers/removeModuleUser";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+    selector: 'page-home',
+    templateUrl: 'home.html'
 })
 export class HomePage {
 
-  public user:any;
+    public user: any;
+    public modules: Array<{name: string,description: string}>;
+    labels:any;
 
-  //public modules:any;
+    constructor(public navCtrl: NavController,
+                public config: Configuration,
+                public homeService: HomeService,
+                public removeUserModuleService: RemoveUserModuleService,
+                private toastCtrl: ToastController,) {
+        this.user = config.getUser();
+        this.modules = [];
+        this.labels = config.getLabels();
+    }
 
-  public modules:Array<{name:string,description:string}>;
+    ionViewWillEnter() {
+        this.getModule();
+    }
 
+    getModule() {
+        this.homeService.load()
+            .then(data => {
+                let dataModules = JSON.parse(data._body);
+                this.modules = dataModules;
+                this.config.setMyModules(dataModules);
+            });
+    }
 
-  constructor(public navCtrl: NavController, public config: Configuration, public homeService: HomeService) {
+    removeModuleUser(module) {
+        this.removeUserModuleService.load(module, true)
+            .then(data => {
+                this.presentToast(this.labels.MODULE_REMOVED);
+                this.removeModuleOnList(module);
+            });
+    }
 
-    this.user = config.getUser();
-    console.log(this.user);
+    removeModuleOnList(module:any) {
+        for (let i = 0; i < this.modules.length; i++) {
+            if (this.modules[i] == module) {
+                this.modules.splice(i, 1);
+            }
+        }
+    }
 
-    this.modules=[
-      {
-        name:"Blabla",
-        description:"Assignment einreichen",
-      },
-      {
-        name:"Blabla",
-        description:"Assignment einreichen",
-      }
-    ]
+    presentToast(message: string) {
+        let toast = this.toastCtrl.create({
+            message: message,
+            duration: 3000,
+            position: 'bottom'
+        });
 
+        toast.present();
+    }
 
-  }
+    clicked(event) {
+        this.navCtrl.push(AddModulePage);
+    }
 
-  ionViewWillEnter(){
-    //this.getModule();
-  }
-
-  /*getModule(){
-    this.homeService.load(this.user.user_Id)
-      .then(data => {
-        this.modules = JSON.parse(data._body);
-        console.log(data);
-      });
-
-  }*/
-
-  clicked(event){
-    this.navCtrl.push(AddModulePage);
-  }
-
-  goToDetail(event, module){
-    this.config.setModule(module);
-    this.navCtrl.push(ModuleDetail)
-  }
+    goToDetail(module:any) {
+        this.navCtrl.push(ModuleDetail, {module:module, showAdd:false});
+    }
 }

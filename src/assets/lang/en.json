@@ -13,12 +13,15 @@
     "REGISTER": "Register"
   },
   "HOME": {
-    "COURSE": "Course"
+    "COURSE": "Course",
+    "MODULES": "Modules",
+    "NOMODS": "No Modules subscribed"
   },
   "MODULES-DETAIL": {
     "TITLE": "Deadlines",
     "LABEL2": "Next Label",
-    "ADDMODULE": "Add to Modules"
+    "ADDMODULE": "Add to Modules",
+    "NO_DEADLINES": "No Deadlines available"
   },
   "ADD-MODULE": {
     "TITLE": "create module",
@@ -34,7 +37,8 @@
     "TIME": "Time:",
     "CLASS": "Class:",
     "GO": "weiter",
-    "LIST-TITLE": "Deadline"
+    "LIST-TITLE": "Deadline",
+    "DESCRIPTION": "Description:"
   },
   "REMINDER": {
     "NEXT-WEEK": "next week",
@@ -50,9 +54,17 @@
     "STANDARD": "Standard Reminder",
     "LOGOUT": "Logout"
   },
+  "SUBSCRIBE-MODULE": {
+    "TITLE": "subscribe module",
+    "LIST-TITLE": "found modules",
+    "CLOSE": "Close Search Page"
+  },
   "GENERAL": {
     "LOADING": "Please wait...",
     "MISTAKE_ADDMODULE": "Module name is required!",
-    "MISTAKE_ADDDEADLINES": "Deadlines name is required!"
+    "MISTAKE_ADDDEADLINES": "Deadlines name is required!",
+    "MODULE_ADDED": "Module was added",
+    "MODULE_REMOVED": "Module removed",
+    "NORESULTS": "No modules found"
   }
 }
