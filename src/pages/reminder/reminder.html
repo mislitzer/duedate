@@ -59,4 +59,28 @@
 
   </ion-list>
 
+  <ion-list>
+    <ion-list-header class="listHeader">
+      {{"REMINDER.NEXT-WEEK" | translate}}
+    </ion-list-header>
+
+    <ion-item *ngFor="let module of modules" value="module">
+
+      <ion-label>
+        <span class="taskHeader">{{module.title}}</span> <br/>
+        <span class="taskDescription">{{module.name}}</span>
+      </ion-label>
+
+      <ion-label item-right>
+        {{ module.dueDate | date:'dd.MM.yyyy'}}
+      </ion-label>
+
+      <ion-icon item-right name="md-time"></ion-icon>
+
+
+    </ion-item>
+
+  </ion-list>
+
+
 </ion-content>

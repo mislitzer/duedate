@@ -6,13 +6,16 @@ import {MapModuleService} from "../../providers/mapModuleUser";
 import {HomePage} from "../home/home";
 import {Storage} from "@ionic/storage";
 import {LoadDeadLinesService} from "../../providers/loadDeadlines";
-import {DeadlineDetail} from "../deadline-detail/deadline-detail";
 
 @Component({
-    selector: 'page-module-detail',
-    templateUrl: 'module-detail.html',
+    selector: 'page-deadline-detail',
+    templateUrl: 'deadline-detail.html',
 })
-export class ModuleDetail {
+
+//Noch von module-detail kopiert -> noch zu überarbeiten
+
+
+export class DeadlineDetail {
 
     module: any = {};
     labels:any;
@@ -62,8 +65,6 @@ export class ModuleDetail {
         toast.present();
     }
 
-
-
     loadDeadlines() {
         let isStudent = 1;
         if (typeof this.course == "undefined" || !this.user.student) {
@@ -84,9 +85,9 @@ export class ModuleDetail {
         this.navCtrl.push(DeadlinesPage, {module: this.module});
     }
 
-    goToDetail(event, module){
-      this.navCtrl.push(DeadlineDetail, {module: this.module});
-    }
+  addReminder($event, module){
+    console.log("mimi");
 
+  }
 
 }

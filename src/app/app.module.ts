@@ -44,6 +44,7 @@ import {SubscribeModulePage} from "../pages/subscribe-module/subscribe-module";
 import {RemoveUserModuleService} from "../providers/removeModuleUser";
 import {CoursesService} from "../providers/loadCourses";
 import {LoadDeadLinesService} from "../providers/loadDeadlines";
+import {DeadlineDetail} from "../pages/deadline-detail/deadline-detail";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateStaticLoader(http, './assets/lang', '.json');
@@ -64,7 +65,8 @@ export function HttpLoaderFactory(http: Http) {
         Start,
         ChangePw,
         SearchPage,
-        SubscribeModulePage
+        SubscribeModulePage,
+        DeadlineDetail
     ],
     imports: [
         BrowserModule,
@@ -87,6 +89,7 @@ export function HttpLoaderFactory(http: Http) {
         LoginPage,
         Register,
         ModuleDetail,
+        DeadlineDetail,
         AddModulePage,
         DeadlinesPage,
         Start,
