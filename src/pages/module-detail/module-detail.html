@@ -22,7 +22,7 @@
         </ion-list-header>
 
         <div *ngIf="deadlines">
-            <ion-item *ngFor="let deadline of deadlines" value="deadline" (click)="goToDetail($event, module)">
+            <ion-item *ngFor="let deadline of deadlines" value="deadline" (click)="goToDetail(deadline)">
                 <ion-label>
                     <span class="taskHeader">{{deadline.deadline_name}}</span> <br/>
                     <span class="taskDescription">{{deadline.deadline_description}}</span>

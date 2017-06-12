@@ -2,11 +2,11 @@
     <div class="flexbar">
 
         <ion-navbar>
-            <ion-title class="addModuleTitle flexitem1" item-left>Name of Deadline</ion-title>
+            <ion-title class="addModuleTitle flexitem1" item-left>{{deadline.name}}</ion-title>
         </ion-navbar>
 
       <div class="addIconHeader flexitem2" *ngIf="user.student">
-        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="addReminder($event, module)"></ion-icon>
+        <ion-icon class="addIcon" item-right name="md-add-circle" (click)="addReminder(deadline)"></ion-icon>
       </div>
 
     </div>
@@ -17,25 +17,23 @@
 
     <ion-list>
         <ion-list-header class="listHeader">
-            Reminder
+            {{'DEADLINE_DETAIL.TITLE' | translate}}
         </ion-list-header>
 
-        <div *ngIf="deadlines">
-            <ion-item *ngFor="let deadline of deadlines" value="deadline">
+        <div *ngIf="reminders">
+            <ion-item *ngFor="let reminder of reminders" value="reminder">
                 <ion-label>
-                    <span class="taskHeader">10.10.17 - 10:00</span>
+                    <span class="taskHeader">{{reminder.date}} - {{reminder.time}}</span>
                 </ion-label>
             </ion-item>
         </div>
-        <div *ngIf="!deadlines">
+        <div *ngIf="!reminders">
             <ion-item>
                 {{'MODULES-DETAIL.NO_DEADLINES' | translate}}
             </ion-item>
         </div>
 
-        <div padding>
-            <button class="dd-button" ion-button full type="submit" (tap)="mapModuleUser()" *ngIf="showAdd">{{'MODULES-DETAIL.ADDMODULE' | translate}}</button>
-        </div>
+
     </ion-list>
 
 

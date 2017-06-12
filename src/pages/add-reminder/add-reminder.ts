@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
-import {LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
-import {DeadlinesPage} from "../deadlines/deadlines";
+import { NavController, NavParams} from 'ionic-angular';
 import {Configuration} from "../../environments/configuration";
-import {AddModuleService} from '../../providers/add-module';
-import {MapModuleService} from "../../providers/mapModuleUser";
 
 
 @Component({
@@ -17,14 +14,12 @@ export class AddReminderPage {
   loading: any;
   labels:any;
 
+  reminder: any;
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public config: Configuration,
-              public addModuleService: AddModuleService,
-              public loadingCtrl: LoadingController,
-              private toastCtrl: ToastController,
-              public mapModuleService: MapModuleService) {
+              public config: Configuration
+             ) {
     this.user = this.config.getUser();
     this.labels = config.getLabels();
   }

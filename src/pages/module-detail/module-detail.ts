@@ -84,8 +84,8 @@ export class ModuleDetail {
         this.navCtrl.push(DeadlinesPage, {module: this.module});
     }
 
-    goToDetail(event, module){
-      this.navCtrl.push(DeadlineDetail, {module: this.module});
+    goToDetail(deadline:any){
+      this.navCtrl.push(DeadlineDetail, {deadline: deadline});
     }
 
 

@@ -20,7 +20,7 @@ export class HomePage {
                 public config: Configuration,
                 public homeService: HomeService,
                 public removeUserModuleService: RemoveUserModuleService,
-                private toastCtrl: ToastController,) {
+                private toastCtrl: ToastController) {
         this.user = config.getUser();
         this.modules = [];
         this.labels = config.getLabels();

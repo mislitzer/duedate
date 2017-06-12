@@ -42,9 +42,13 @@
     "CANCEL": "Cancel",
     "CREATE": "Create"
   },
+  "DEADLINE_DETAIL":{
+    "TITLE": "Reminder"
+  },
   "REMINDER": {
     "NEXT-WEEK": "next week",
-    "TOMORROW": "tomorrow"
+    "TOMORROW": "tomorrow",
+    "SEMESTER": "this semester"
   },
   "SETTINGS": {
     "ACCOUNT_SETTINGS": "Account Settings",
