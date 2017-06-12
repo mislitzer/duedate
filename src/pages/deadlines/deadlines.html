@@ -27,23 +27,22 @@
                 <ion-label floating>
                     {{ 'DEADLINES.DESCRIPTION' | translate }}
                 </ion-label>
-                <ion-input type="text" id="deadlineDescription" name="description" [(ngModel)]="deadline.description"></ion-input>
+                <ion-input type="text" id="deadlineDescription" name="description"
+                           [(ngModel)]="deadline.description"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label class="label-adapt">
                     {{ 'DEADLINES.DATE' | translate }}
                 </ion-label>
-                <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="date"
-                              [(ngModel)]="date"></ion-datetime>
+                <ion-datetime displayFormat="DD-MM-YYYY" min="{{minYear}}" max="{{maxYear}}" pickerFormat="DD MM YYYY" name="date" [(ngModel)]="date"></ion-datetime>
             </ion-item>
 
             <ion-item>
                 <ion-label class="label-adapt">
                     {{ 'DEADLINES.TIME' | translate }}
                 </ion-label>
-                <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="time"
-                              [(ngModel)]="time"></ion-datetime>
+                <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" name="time" minuteValues="0,15,30,45" [(ngModel)]="time"></ion-datetime>
             </ion-item>
 
             <ion-item class="lastListItem">
@@ -51,7 +50,8 @@
                     {{ 'DEADLINES.CLASS' | translate }}
                 </ion-label>
                 <ion-select [(ngModel)]="deadline.course" name="course">
-                    <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}</ion-option>
+                    <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}
+                    </ion-option>
                 </ion-select>
             </ion-item>
 

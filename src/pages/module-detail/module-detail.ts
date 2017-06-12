@@ -85,8 +85,9 @@ export class ModuleDetail {
     }
 
     goToDetail(deadline:any){
-      console.log(deadline.name);
-      this.navCtrl.push(DeadlineDetail, {deadline: deadline});
+      if (this.user.student) {
+          this.navCtrl.push(DeadlineDetail, {deadline: deadline});
+      }
     }
 
 

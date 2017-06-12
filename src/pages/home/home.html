@@ -31,8 +31,8 @@
                 </ion-item>
                 <ion-item-options side="right">
                     <button class="unsubscribe" color="danger" ion-button (tap)="removeModuleUser(module)">
-                        <span>Unsubscribe</span>
-                        <ion-icon item-right name="remove-circle"></ion-icon>
+                        <ion-icon item-right name="remove-circle" *ngIf="user.student"></ion-icon>
+                        <ion-icon item-right name="trash" *ngIf="!user.student"></ion-icon>
                     </button>
                 </ion-item-options>
             </ion-item-sliding>

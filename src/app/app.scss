@@ -18,7 +18,6 @@ ion-header{
 
 .scroll-content{
   margin-top: 74px;
-  /*overflow-y: hidden;*/
 }
 
 .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
@@ -80,4 +79,8 @@ button.back-button {
 
 ion-searchbar.searchBar.teacher {
   visibility: hidden;
+}
+
+ion-item-options .button {
+  padding: 0 1.7em;
 }

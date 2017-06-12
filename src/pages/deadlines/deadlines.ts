@@ -4,6 +4,7 @@ import {Configuration} from "../../environments/configuration";
 import {DeadlinesService} from "../../providers/deadlines"
 import {HomePage} from "../home/home"
 import {CoursesService} from "../../providers/loadCourses";
+import {ModuleDetail} from "../module-detail/module-detail";
 
 @Component({
     selector: 'page-deadlines',
@@ -19,6 +20,8 @@ export class DeadlinesPage {
     courses:any;
     time:any;
     date:any;
+    minYear:any;
+    maxYear:any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -30,11 +33,17 @@ export class DeadlinesPage {
 
         this.labels = config.getLabels();
         this.module = this.navParams.get("module");
+        this.setMinMaxDate();
         this.loadCourses();
     }
 
-    sendDeadline() {
+    setMinMaxDate() {
+        let d = new Date();
+        this.minYear = d.getFullYear();
+        this.maxYear = d.getFullYear() + 1;
+    }
 
+    sendDeadline() {
       let deadlineTime = new Date(this.date.year + "-" + this.date.month + "-" + this.date.day + " " + this.time.hour + ":" + this.time.minute + ":00");
 
       this.deadline.time = deadlineTime.getTime();
@@ -45,7 +54,7 @@ export class DeadlinesPage {
           this.deadlineService.load(this.deadline, this.module.module_Id)
               .then(data => {
                   console.log(data);
-                  this.navCtrl.popToRoot(HomePage);
+                  this.navCtrl.popToRoot(ModuleDetail);
                   this.loading.dismiss();
               });
       } else {
