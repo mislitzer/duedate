@@ -17,6 +17,8 @@ export class DeadlinesPage {
     loading: any;
     module: any;
     courses:any;
+    time:any;
+    date:any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -32,19 +34,24 @@ export class DeadlinesPage {
     }
 
     sendDeadline() {
-        if (this.deadline.name.trim().length > 1 && this.deadline.name.trim().length < 255) {
-            this.presentLoadingDefault();
 
-            this.deadlineService.load(this.deadline, this.module.module_Id)
-                .then(data => {
-                    console.log(data);
-                    this.navCtrl.popToRoot(HomePage);
-                    this.loading.dismiss();
-                });
-        } else {
-            this.presentToast();
-            this.navCtrl.push(DeadlinesPage);
-        }
+      let deadlineTime = new Date(this.date.year + "-" + this.date.month + "-" + this.date.day + " " + this.time.hour + ":" + this.time.minute + ":00");
+
+      this.deadline.time = deadlineTime.getTime();
+
+      if (this.deadline.name.trim().length > 1 && this.deadline.name.trim().length < 255) {
+          this.presentLoadingDefault();
+
+          this.deadlineService.load(this.deadline, this.module.module_Id)
+              .then(data => {
+                  console.log(data);
+                  this.navCtrl.popToRoot(HomePage);
+                  this.loading.dismiss();
+              });
+      } else {
+          this.presentToast();
+          this.navCtrl.push(DeadlinesPage);
+      }
     }
 
     loadCourses() {

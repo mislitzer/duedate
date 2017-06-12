@@ -34,23 +34,23 @@
                 <ion-label class="label-adapt">
                     {{ 'DEADLINES.DATE' | translate }}
                 </ion-label>
-                <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate"
-                              [(ngModel)]="deadline.deadlinedate"></ion-datetime>
+                <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="date"
+                              [(ngModel)]="date"></ion-datetime>
             </ion-item>
 
             <ion-item>
                 <ion-label class="label-adapt">
                     {{ 'DEADLINES.TIME' | translate }}
                 </ion-label>
-                <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime"
-                              [(ngModel)]="deadline.deadlinetime"></ion-datetime>
+                <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="time"
+                              [(ngModel)]="time"></ion-datetime>
             </ion-item>
 
             <ion-item class="lastListItem">
                 <ion-label floating>
                     {{ 'DEADLINES.CLASS' | translate }}
                 </ion-label>
-                <ion-select [(ngModel)]="deadline.course" name="deadlinecourse">
+                <ion-select [(ngModel)]="deadline.course" name="course">
                     <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}</ion-option>
                 </ion-select>
             </ion-item>
