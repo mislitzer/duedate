@@ -49,7 +49,10 @@
   "REMINDER": {
     "NEXT-WEEK": "next week",
     "TOMORROW": "tomorrow",
-    "SEMESTER": "this semester"
+    "SEMESTER": "this semester",
+    "TITLE": "add reminder",
+    "LIST-TITLE": "new reminder",
+    "CREATE": "create"
   },
   "SETTINGS": {
     "ACCOUNT_SETTINGS": "Account Settings",
@@ -59,7 +62,11 @@
     "INFOS": "Alerts",
     "CLASS": "Class",
     "STANDARD": "Standard Reminder",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "FIVE": "5 minutes",
+    "HOUR": "1 hour",
+    "DAY": "1 day",
+    "WEEK": "1 week"
   },
   "SUBSCRIBE-MODULE": {
     "TITLE": "subscribe module",
