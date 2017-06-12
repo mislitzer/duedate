@@ -17,7 +17,7 @@ export class DeadlineDetail {
     labels:any;
     showAdd:boolean;
     public user: any;
-    public deadline:{name: string,description: string,date: Date};
+    public deadline:any;
     public reminders: Array<{date: Date, time: string}>;
     course:any;
 
@@ -27,7 +27,7 @@ export class DeadlineDetail {
                 public config: Configuration) {
 
         this.labels = config.getLabels();
-        this.module = this.navParams.get("module");
+        this.deadline = this.navParams.get("deadline");
         this.showAdd = this.navParams.get("showAdd");
         this.user = config.getUser();
 
