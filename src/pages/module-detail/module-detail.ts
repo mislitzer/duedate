@@ -6,6 +6,7 @@ import {MapModuleService} from "../../providers/mapModuleUser";
 import {HomePage} from "../home/home";
 import {Storage} from "@ionic/storage";
 import {LoadDeadLinesService} from "../../providers/loadDeadlines";
+import {RemoveDeadlineService} from "../../providers/removeDeadline";
 import {DeadlineDetail} from "../deadline-detail/deadline-detail";
 
 @Component({
@@ -28,7 +29,8 @@ export class ModuleDetail {
                 public mapModuleService: MapModuleService,
                 private toastCtrl: ToastController,
                 public storage: Storage,
-                public deadlineService: LoadDeadLinesService) {
+                public deadlineService: LoadDeadLinesService,
+                public removeDeadlineService: RemoveDeadlineService) {
 
         this.labels = config.getLabels();
         this.module = this.navParams.get("module");
@@ -62,8 +64,6 @@ export class ModuleDetail {
         toast.present();
     }
 
-
-
     loadDeadlines() {
         let isStudent = 1;
         if (typeof this.course == "undefined" || !this.user.student) {
@@ -80,13 +80,30 @@ export class ModuleDetail {
     }
 
     addDeadline(event, module) {
-        console.log(module);
         this.navCtrl.push(DeadlinesPage, {module: this.module});
+    }
+
+    removeDeadline(deadline) {
+        this.removeDeadlineService.load(deadline.deadline_id).then(data => {
+            this.presentToast(this.labels.DEADLINE_REMOVED);
+            this.removeDeadlineOnList(deadline);
+        });
+    }
+
+    removeDeadlineOnList(deadline:any) {
+        for (let i = 0; i < this.deadlines.length; i++) {
+            if (this.deadlines[i] == deadline) {
+                this.deadlines.splice(i, 1);
+            }
+        }
     }
 
     goToDetail(deadline:any){
       if (this.user.student) {
           this.navCtrl.push(DeadlineDetail, {deadline: deadline});
+      }
+      else {
+          this.navCtrl.push(DeadlinesPage, {module: this.module, deadline: deadline});
       }
     }
 

@@ -33,6 +33,9 @@ export class DeadlinesPage {
 
         this.labels = config.getLabels();
         this.module = this.navParams.get("module");
+        let deadline = this.navParams.get("deadline");
+        console.log(deadline);
+
         this.setMinMaxDate();
         this.loadCourses();
     }
@@ -41,6 +44,30 @@ export class DeadlinesPage {
         let d = new Date();
         this.minYear = d.getFullYear();
         this.maxYear = d.getFullYear() + 1;
+    }
+
+    mapDeadlineValues(deadline:any) {
+        /*course
+            :
+            "4"
+        deadline_description
+            :
+            "asdf"
+        deadline_id
+            :
+            13
+        deadline_name
+            :
+            "asdf"
+        deadlinetime
+            :
+            "1514851200000"
+        module
+            :
+            "11"
+
+        this.deadline = deadline.course;
+        this.deadline = deadline.*/
     }
 
     sendDeadline() {

@@ -21,8 +21,6 @@ import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 
 import {HttpModule, Http} from '@angular/http';
-//import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-//import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-translate";
 
 import {AddModulePage} from "../pages/add-module/add-module";
@@ -45,6 +43,7 @@ import {SubscribeModulePage} from "../pages/subscribe-module/subscribe-module";
 import {RemoveUserModuleService} from "../providers/removeModuleUser";
 import {CoursesService} from "../providers/loadCourses";
 import {LoadDeadLinesService} from "../providers/loadDeadlines";
+import {RemoveDeadlineService} from "../providers/removeDeadline";
 import {DeadlineDetail} from "../pages/deadline-detail/deadline-detail";
 
 export function HttpLoaderFactory(http: Http) {
@@ -116,6 +115,7 @@ export function HttpLoaderFactory(http: Http) {
         RemoveUserModuleService,
         CoursesService,
         LoadDeadLinesService,
+        RemoveDeadlineService,
         {provide: ErrorHandler, useClass: IonicErrorHandler}
     ]
 })

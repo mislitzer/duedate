@@ -72,6 +72,7 @@
     "MISTAKE_ADDDEADLINES": "Deadlines name is required!",
     "MODULE_ADDED": "Module was added",
     "MODULE_REMOVED": "Module removed",
+    "DEADLINE_REMOVED": "Deadline removed",
     "NORESULTS": "No modules found"
   }
 }

@@ -29,7 +29,7 @@ export class DeadlinesService {
 
     posts = posts.replace("&", "");
 
-    posts += "&id=" + this.config.getUser().user_Id + "&moduleId=" + moduleId;
+    posts += "&moduleId=" + moduleId;
     console.log(posts);
 
     return new Promise(resolve => {
