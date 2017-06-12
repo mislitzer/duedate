@@ -77,6 +77,15 @@
     "ADD_DEADLINE": "add deadline",
     "EDIT_DEADLINE": "edit deadline",
     "DEADLINE_CREATE": "Create",
-    "DEADLINE_SAVE": "Save"
+    "DEADLINE_SAVE": "Save",
+    "REGISTER_PWREPEAT": "Password repeat is not correct!",
+    "REGISTER_ATLEAST": "Your password must have at least 6 characters",
+    "REGISTER_VALIDMAIL": "Please fill in all input fields and type in a valid mail address!",
+    "REGISTER_VALID": "Please fill out all input fields!",
+    "REGISTER_VERIFY": "Thank you! Please look at your mail inbox to verify your register process!",
+    "PW_CHANGED": "Password changed",
+    "PW_FAILED": "Password change failed - incorrect current Password",
+    "LOGIN_NOTFOUND": "User not found",
+    "LOGIN_PWINCORRECT": "Password incorrect"
   }
 }

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, ToastController} from 'ionic-angular';
+import {NavController, ToastController, LoadingController} from 'ionic-angular';
 import {TabsPage} from '../tabs/tabs' ;
 import {LoginService} from '../../providers/login';
 import {Storage} from "@ionic/storage";
@@ -14,12 +14,18 @@ import {Configuration} from "../../environments/configuration";
 export class LoginPage {
 
     login: any = {};
+    loading:any;
+    labels:any;
 
     constructor(public navCtrl: NavController,
                 public toastController: ToastController,
                 public loginService: LoginService,
                 public storage: Storage,
-                public config: Configuration) {
+                public config: Configuration,
+                public loadingCtrl: LoadingController) {
+
+        this.labels = config.getLabels();
+
     }
 
     loginUser() {
@@ -28,22 +34,24 @@ export class LoginPage {
             this.loginUserRequest();
         }
         else {
-            this.showToast("Please fill out all input fields!", 3000, "bottom");
+            this.showToast(this.labels.REGISTER_VALID, 3000, "bottom");
         }
 
     }
 
     loginUserRequest() {
+        this.presentLoadingDefault();
         this.loginService.load(this.login)
             .then(data => {
                 console.log(data);
+                this.loading.dismiss();
                 if (data && data != null && data._body != "User not found") {
                     this.saveUserLocal(data._body);
                     this.navCtrl.push(TabsPage);
                 } else if (data._body == "User not found") {
-                    this.showToast("User not found", 3000, "bottom");
+                    this.showToast(this.labels.LOGIN_NOTFOUND, 3000, "bottom");
                 } else if (data._body == "Password incorrect") {
-                    this.showToast("Password incorrect", 3000, "bottom");
+                    this.showToast(this.labels.LOGIN_PWINCORRECT, 3000, "bottom");
                 }
             })
 
@@ -54,6 +62,18 @@ export class LoginPage {
         this.config.setUser(JSON.parse(body));
     }
 
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            content: this.labels.LOADING,
+            spinner: 'dots'
+        });
+
+        setTimeout(() => {
+            this.loading.dismiss();
+        }, 25000);
+        this.loading.present();
+    }
+
     showToast(message: string, speed: number, position: string) {
         let toast = this.toastController.create({
             message: message,
@@ -62,6 +82,4 @@ export class LoginPage {
         });
         toast.present();
     }
-
-
 }

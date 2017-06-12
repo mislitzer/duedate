@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, ToastController} from 'ionic-angular';
+import {NavController, NavParams, ToastController, LoadingController} from 'ionic-angular';
 import {RegisterService} from "../../providers/register";
+import {Configuration} from "../../environments/configuration";
 
 @Component({
     selector: 'page-register',
@@ -9,29 +10,36 @@ import {RegisterService} from "../../providers/register";
 export class Register {
 
     register: any = {};
+    loading:any;
+    labels:any;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public toastController: ToastController,
-                public registerService: RegisterService) {
+                public registerService: RegisterService,
+                public config: Configuration,
+                public loadingCtrl: LoadingController) {
+
+        this.labels = this.config.getLabels();
+
     }
 
     registerUser() {
         if (this.register.email && this.register.name && this.register.password && this.register.passwordrpt && this.emailCheck()) {
             if (this.register.password.length >= 6) {
                 if (this.register.password != this.register.passwordrpt) {
-                    this.showToast("Password repeat is not correct!", 3000, "bottom");
+                    this.showToast(this.labels.REGISTER_PWREPEAT, 3000, "bottom");
                 }
                 else {
                     this.registerUserRequest();
                 }
             }
             else {
-                this.showToast("Your password must have at least 6 characters", 3000, "bottom");
+                this.showToast(this.labels.REGISTER_ATLEAST, 3000, "bottom");
             }
         }
         else {
-            this.showToast("Please fill in all input fields and type in a valid mail address!", 3000, "bottom");
+            this.showToast(this.labels.REGISTER_VALIDMAIL, 3000, "bottom");
         }
 
     }
@@ -47,13 +55,13 @@ export class Register {
 
     registerUserRequest() {
         this.roleDivider();
-        console.log(this.register);
+        this.presentLoadingDefault();
 
         this.registerService.load(this.register)
             .then(data => {
-                console.log(data);
                 if (data && data != null) {
-                    this.showToast("Thank you! Please look at your mail inbox to verify your register process!", 6000, "bottom");
+                    this.loading.dismiss();
+                    this.showToast(this.labels.REGISTER_VERIFY, 6000, "bottom");
                     this.navCtrl.popToRoot();
                 }
             })
@@ -65,6 +73,18 @@ export class Register {
         let check = pattern.test(this.register.email);
 
         return check;
+    }
+
+    presentLoadingDefault() {
+        this.loading = this.loadingCtrl.create({
+            content: this.labels.LOADING,
+            spinner: 'dots'
+        });
+
+        setTimeout(() => {
+            this.loading.dismiss();
+        }, 25000);
+        this.loading.present();
     }
 
     roleDivider() {
