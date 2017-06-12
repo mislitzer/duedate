@@ -29,7 +29,7 @@
                 </ion-label>
 
                 <ion-label class="deadline-right" item-right>
-                    {{ deadline.date | date:'dd.MM.yyyy'}}
+                    {{ deadline.deadlinetime | date:'dd.MM.yyyy - HH:mm'}}
                     <ion-icon *ngIf="!user.student" item-right name="md-trash" class="delete-icon"></ion-icon>
                 </ion-label>
             </ion-item>
