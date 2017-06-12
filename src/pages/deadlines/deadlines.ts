@@ -14,14 +14,18 @@ export class DeadlinesPage {
 
     showList: boolean;
     deadline: any = {};
+    editedDeadline:any = {};
     labels: any;
     loading: any;
     module: any;
-    courses:any;
-    time:any;
-    date:any;
-    minYear:any;
-    maxYear:any;
+    courses: any;
+    time: any;
+    date: any;
+    minYear: any;
+    maxYear: any;
+    title: string;
+    applyBtnText: string;
+    edit: boolean = false;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -34,7 +38,18 @@ export class DeadlinesPage {
         this.labels = config.getLabels();
         this.module = this.navParams.get("module");
         let deadline = this.navParams.get("deadline");
-        console.log(deadline);
+
+        if (typeof deadline != "undefined") {
+            this.title = this.labels.EDIT_DEADLINE;
+            this.applyBtnText = this.labels.DEADLINE_SAVE;
+            this.edit = true;
+            this.editedDeadline = deadline;
+            this.mapDeadlineValues(deadline);
+        }
+        else {
+            this.applyBtnText = this.labels.DEADLINE_CREATE;
+            this.title = this.labels.ADD_DEADLINE;
+        }
 
         this.setMinMaxDate();
         this.loadCourses();
@@ -46,48 +61,63 @@ export class DeadlinesPage {
         this.maxYear = d.getFullYear() + 1;
     }
 
-    mapDeadlineValues(deadline:any) {
-        /*course
-            :
-            "4"
-        deadline_description
-            :
-            "asdf"
-        deadline_id
-            :
-            13
-        deadline_name
-            :
-            "asdf"
-        deadlinetime
-            :
-            "1514851200000"
-        module
-            :
-            "11"
+    mapDeadlineValues(deadline: any) {
+        console.log(deadline);
+        this.deadline.course = deadline.course;
+        this.deadline.description = deadline.deadline_description;
+        this.deadline.name = deadline.deadline_name;
+        this.date = this.createDateString(deadline.deadlinetime);
+        this.time = this.createTimeString(deadline.deadlinetime);
+    }
 
-        this.deadline = deadline.course;
-        this.deadline = deadline.*/
+    createDateString(timestamp: any) {
+        let d = new Date(parseInt(timestamp));
+        let m = d.getMonth() + 1;
+        let year = d.getFullYear();
+        let month = m < 10 ? "0" + m : m;
+        let day = d.getDate() < 10 ? "0" + d.getDate() : d.getDate();
+        let fullString = year + "-" + month + "-" + day;
+
+        return fullString;
+    }
+
+    createTimeString(timestamp: any) {
+        let d = new Date(parseInt(timestamp));
+        let hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+        let minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();
+        let fullString = hours + ":" + minutes;
+
+        return fullString;
     }
 
     sendDeadline() {
-      let deadlineTime = new Date(this.date.year + "-" + this.date.month + "-" + this.date.day + " " + this.time.hour + ":" + this.time.minute + ":00");
+        let deadlineTime = new Date(this.date.year + "-" + this.date.month + "-" + this.date.day + " " + this.time.hour + ":" + this.time.minute + ":00");
 
-      this.deadline.time = deadlineTime.getTime();
+        this.deadline.time = deadlineTime.getTime();
 
-      if (this.deadline.name.trim().length > 1 && this.deadline.name.trim().length < 255) {
-          this.presentLoadingDefault();
+        if (this.deadline.name.trim().length > 1 && this.deadline.name.trim().length < 255) {
+            this.presentLoadingDefault();
 
-          this.deadlineService.load(this.deadline, this.module.module_Id)
-              .then(data => {
-                  console.log(data);
-                  this.navCtrl.popToRoot(ModuleDetail);
-                  this.loading.dismiss();
-              });
-      } else {
-          this.presentToast();
-          this.navCtrl.push(DeadlinesPage);
-      }
+            if (this.edit) {
+                this.deadlineService.load(this.deadline, this.module.module_Id, this.editedDeadline.deadline_id, true)
+                    .then(data => {
+                        console.log(data);
+                        this.navCtrl.popToRoot(ModuleDetail);
+                        this.loading.dismiss();
+                    });
+            }
+            else {
+                this.deadlineService.load(this.deadline, this.module.module_Id, 0, false)
+                    .then(data => {
+                        console.log(data);
+                        this.navCtrl.popToRoot(ModuleDetail);
+                        this.loading.dismiss();
+                    });
+            }
+        } else {
+            this.presentToast();
+            this.navCtrl.push(DeadlinesPage);
+        }
     }
 
     loadCourses() {

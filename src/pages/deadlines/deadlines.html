@@ -1,7 +1,7 @@
 <ion-header>
 
     <ion-navbar>
-        <ion-title>{{ 'DEADLINES.TITLE' | translate }}</ion-title>
+        <ion-title>{{title}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -11,11 +11,6 @@
 
     <form (ngSubmit)="sendDeadline()">
         <ion-list>
-
-            <!--<ion-list-header class="listHeader">
-                {{ 'DEADLINES.LIST-TITLE' | translate }}
-            </ion-list-header>-->
-
             <ion-item>
                 <ion-label floating>
                     {{ 'DEADLINES.NAME' | translate }}
@@ -45,7 +40,7 @@
                 <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" name="time" minuteValues="0,15,30,45" [(ngModel)]="time"></ion-datetime>
             </ion-item>
 
-            <ion-item class="lastListItem">
+            <ion-item class="lastListItem" *ngIf="!edit">
                 <ion-label floating>
                     {{ 'DEADLINES.CLASS' | translate }}
                 </ion-label>
@@ -62,7 +57,7 @@
                 {{ 'DEADLINES.CANCEL' | translate }}
             </button>
             <button ion-button class="checkButtons submit item2" type="submit">
-                {{ 'DEADLINES.CREATE' | translate }}
+                {{applyBtnText}}
             </button>
         </div>
     </form>
