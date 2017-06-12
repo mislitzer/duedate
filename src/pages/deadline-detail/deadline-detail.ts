@@ -6,6 +6,7 @@ import {MapModuleService} from "../../providers/mapModuleUser";
 import {HomePage} from "../home/home";
 import {Storage} from "@ionic/storage";
 import {LoadDeadLinesService} from "../../providers/loadDeadlines";
+import {AddReminderPage} from "../add-reminder/add-reminder";
 
 @Component({
     selector: 'page-deadline-detail',
@@ -87,6 +88,7 @@ export class DeadlineDetail {
 
   addReminder($event, module){
     console.log("mimi");
+    this.navCtrl.push(AddReminderPage, {module: this.module});
 
   }
 

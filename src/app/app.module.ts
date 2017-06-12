@@ -28,6 +28,7 @@ import {TranslateModule, TranslateStaticLoader, TranslateLoader} from "ng2-trans
 import {AddModulePage} from "../pages/add-module/add-module";
 
 import {DeadlinesPage} from "../pages/deadlines/deadlines";
+import {AddReminderPage} from "../pages/add-reminder/add-reminder";
 
 import {LoginService} from "../providers/login";
 import {IonicStorageModule} from "@ionic/storage";
@@ -66,7 +67,8 @@ export function HttpLoaderFactory(http: Http) {
         ChangePw,
         SearchPage,
         SubscribeModulePage,
-        DeadlineDetail
+        DeadlineDetail,
+        AddReminderPage
     ],
     imports: [
         BrowserModule,
@@ -95,7 +97,8 @@ export function HttpLoaderFactory(http: Http) {
         Start,
         ChangePw,
         SearchPage,
-        SubscribeModulePage
+        SubscribeModulePage,
+        AddReminderPage
     ],
     providers: [
         StatusBar,
