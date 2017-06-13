@@ -21,14 +21,14 @@
             {{'DEADLINE_DETAIL.TITLE' | translate}}
         </ion-list-header>
 
-       <!-- <div *ngIf="reminders">
+       <div *ngIf="reminders.length">
             <ion-item *ngFor="let reminder of reminders" value="reminder">
                 <ion-label>
                     <span class="taskHeader">{{reminder.reminderTime | date: 'dd.MM.yyyy - HH:mm'}}</span>
                 </ion-label>
             </ion-item>
-        </div>-->
-        <div *ngIf="!reminders">
+        </div>
+        <div *ngIf="!reminders.length">
             <ion-item>
                 {{'DEADLINE_DETAIL.NO-REMINDER' | translate}}
             </ion-item>

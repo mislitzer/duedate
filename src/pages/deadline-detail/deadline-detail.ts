@@ -15,12 +15,12 @@ import {AddReminderService} from "../../providers/add-reminder";
 export class DeadlineDetail {
 
     module: any = {};
-    labels:any;
-    showAdd:boolean;
+    labels: any;
+    showAdd: boolean;
     public user: any;
-    public deadline:any;
+    public deadline: any;
     public reminders: any = [];
-    course:any;
+    course: any;
 
 
     constructor(public navCtrl: NavController,
@@ -34,26 +34,25 @@ export class DeadlineDetail {
         this.user = config.getUser();
     }
 
-  ionViewWillEnter() {
-    this.loadReminders();
-  }
+    ionViewWillEnter() {
+        this.loadReminders();
+    }
 
-  addReminder(deadline: any){
-    console.log("mimi");
-    this.navCtrl.push(AddReminderPage, {deadline: this.deadline});
-  }
+    addReminder(deadline: any) {
+        this.navCtrl.push(AddReminderPage, {deadline: this.deadline});
+    }
 
-  loadReminders(){
-    this.addReminderService.loadReminders(this.user.user_Id, this.deadline.deadline_id).then(data => {
-      let returnVal = JSON.parse(data._body);
+    loadReminders() {
+        this.reminders = [];
+        this.addReminderService.loadReminders(this.user.user_Id, this.deadline.deadline_id).then(data => {
+            let returnVal = JSON.parse(data._body);
 
-      let that = this;
-      console.log(returnVal);
-      returnVal.forEach(function(val) {
-        that.reminders.push([val]);
-      });
-      console.log(this.reminders);
-    });
-  }
+            let that = this;
+            returnVal.forEach(function (val) {
+                that.reminders.push(val);
+            });
+            console.log(this.reminders);
+        });
+    }
 
 }
