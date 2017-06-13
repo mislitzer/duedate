@@ -16,3 +16,9 @@ page-about {
 .item-block{
   min-height: 6rem;
 }
+
+
+.list-ios .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block {
+  border-bottom: none;
+  margin-bottom: -1.2em;
+}
