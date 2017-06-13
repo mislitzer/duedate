@@ -44,7 +44,10 @@
   },
   "DEADLINE_DETAIL":{
     "TITLE": "Reminder",
-    "NO-REMINDER": "No Reminder available"
+    "NO-REMINDER": "No Reminder available",
+    "5MINUTES": "5 minuten",
+    "1HOUR": "1 hour",
+    "1WEEK": "1 week"
   },
   "REMINDER": {
     "NEXT-WEEK": "next week",

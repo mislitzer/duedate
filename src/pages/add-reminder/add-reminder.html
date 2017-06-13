@@ -8,23 +8,23 @@
 
 
   <form (ngSubmit)="sendReminder()">
-    <ion-list>
-      <ion-list-header class="listHeader">
-        {{'ADD-MODULE.LIST-TITLE' | translate}}
-      </ion-list-header>
-      <ion-item>
-        <ion-label class="label-adapt">
-          {{ 'DEADLINES.DATE' | translate }}
-        </ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" pickerFormat="DD MM YYYY" name="deadlinedate"></ion-datetime>
+
+    <ion-list radio-group [(ngModel)]="value" name="value">
+      <ion-item class="centeredList" name="select1">
+        <ion-label>{{'DEADLINE_DETAIL.5MINUTES' | translate}}</ion-label>
+        <ion-radio value="1" checked="true"></ion-radio>
       </ion-item>
 
-      <ion-item>
-        <ion-label class="label-adapt">
-          {{ 'DEADLINES.TIME' | translate }}
-        </ion-label>
-        <ion-datetime displayFormat="hh:mm" pickerFormat="hh mm" name="deadlinetime"></ion-datetime>
+      <ion-item class="centeredList" name="select1">
+        <ion-label>{{'DEADLINE_DETAIL.1HOUR' | translate}}</ion-label>
+        <ion-radio value="2"></ion-radio>
       </ion-item>
+
+      <ion-item class="centeredList" name="select1">
+        <ion-label>{{'DEADLINE_DETAIL.1WEEK' | translate}}</ion-label>
+        <ion-radio value="3"></ion-radio>
+      </ion-item>
+
       <div padding>
         <button class="dd-button" ion-button full type="submit">{{'DEADLINES.GO' | translate}}</button>
       </div>

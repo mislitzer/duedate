@@ -45,6 +45,7 @@ import {CoursesService} from "../providers/loadCourses";
 import {LoadDeadLinesService} from "../providers/loadDeadlines";
 import {RemoveDeadlineService} from "../providers/removeDeadline";
 import {DeadlineDetail} from "../pages/deadline-detail/deadline-detail";
+import {AddReminderService} from "../providers/add-reminder";
 
 export function HttpLoaderFactory(http: Http) {
     return new TranslateStaticLoader(http, './assets/lang', '.json');
@@ -106,6 +107,7 @@ export function HttpLoaderFactory(http: Http) {
         Configuration,
         LoginService,
         AddModuleService,
+        AddReminderService,
         HomeService,
         DuedateHelpers,
         ChangePwService,

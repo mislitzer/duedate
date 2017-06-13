@@ -30,7 +30,6 @@ export class DeadlineDetail {
         this.deadline = this.navParams.get("deadline");
         this.showAdd = this.navParams.get("showAdd");
         this.user = config.getUser();
-
     }
 
 
