@@ -36,7 +36,6 @@ export class DeadlineDetail {
   addReminder(deadline: any){
     console.log("mimi");
     this.navCtrl.push(AddReminderPage, {deadline: this.deadline});
-
   }
 
 }

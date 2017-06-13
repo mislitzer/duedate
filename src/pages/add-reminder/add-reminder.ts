@@ -6,8 +6,8 @@ import {ReminderPage} from "../reminder/reminder";
 
 
 @Component({
-  selector: 'page-add-reminder',
-  templateUrl: 'add-reminder.html',
+    selector: 'page-add-reminder',
+    templateUrl: 'add-reminder.html',
 })
 export class AddReminderPage {
 
