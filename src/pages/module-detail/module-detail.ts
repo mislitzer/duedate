@@ -46,6 +46,10 @@ export class ModuleDetail {
 
     }
 
+  ionViewWillEnter() {
+    this.loadDeadlines();
+  }
+
     mapModuleUser() {
         this.mapModuleService.load(this.module, true)
             .then(data => {

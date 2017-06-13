@@ -64,7 +64,7 @@ export class AddReminderPage {
     this.addReminderService.load(this.reminder).then(data => {
       this.presentLoadingDefault();
       console.log(data);
-      this.navCtrl.popToRoot(ReminderPage);
+      this.navCtrl.pop();
       this.loading.dismiss();
     });
   }

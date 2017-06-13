@@ -102,7 +102,7 @@ export class DeadlinesPage {
                 this.deadlineService.load(this.deadline, this.module.module_Id, this.editedDeadline.deadline_id, true)
                     .then(data => {
                         console.log(data);
-                        this.navCtrl.popToRoot(ModuleDetail);
+                        this.navCtrl.pop();
                         this.loading.dismiss();
                     });
             }
@@ -110,7 +110,7 @@ export class DeadlinesPage {
                 this.deadlineService.load(this.deadline, this.module.module_Id, 0, false)
                     .then(data => {
                         console.log(data);
-                        this.navCtrl.popToRoot(ModuleDetail);
+                        this.navCtrl.pop();
                         this.loading.dismiss();
                     });
             }
@@ -128,7 +128,7 @@ export class DeadlinesPage {
     }
 
     abort() {
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.pop();
     }
 
     presentToast() {
