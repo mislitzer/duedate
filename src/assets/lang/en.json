@@ -83,6 +83,7 @@
     "MODULE_ADDED": "Module was added",
     "MODULE_REMOVED": "Module removed",
     "DEADLINE_REMOVED": "Deadline removed",
+    "REMINDER_REMOVED": "Reminder removed",
     "NORESULTS": "No modules found",
     "ADD_DEADLINE": "add deadline",
     "EDIT_DEADLINE": "edit deadline",

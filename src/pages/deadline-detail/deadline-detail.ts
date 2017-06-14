@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, ToastController} from 'ionic-angular';
 import {Configuration} from "../../environments/configuration"
 import {AddReminderPage} from "../add-reminder/add-reminder";
 import {AddReminderService} from "../../providers/add-reminder";
@@ -8,9 +8,6 @@ import {AddReminderService} from "../../providers/add-reminder";
     selector: 'page-deadline-detail',
     templateUrl: 'deadline-detail.html',
 })
-
-//Noch von module-detail kopiert -> noch zu überarbeiten
-
 
 export class DeadlineDetail {
 
@@ -26,6 +23,7 @@ export class DeadlineDetail {
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
                 public config: Configuration,
+                private toastCtrl: ToastController,
                 public addReminderService: AddReminderService) {
 
         this.labels = config.getLabels();
@@ -54,5 +52,26 @@ export class DeadlineDetail {
             console.log(this.reminders);
         });
     }
+
+    removeReminder(reminder){
+
+      console.log("Löschen");
+      console.log(reminder);
+
+      this.addReminderService.deleteReminder(reminder.reminder_id).then(data => {
+        this.presentToast(this.labels.REMINDER_REMOVED);
+        this.loadReminders();
+      });
+    }
+
+  presentToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      position: 'bottom'
+    });
+
+    toast.present();
+  }
 
 }

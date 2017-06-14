@@ -68,4 +68,26 @@ export class AddReminderService {
     });
   }
 
+  deleteReminder(reminderId){
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    let reminder = "id=" + reminderId;
+
+    return new Promise(resolve => {
+      this.http.post(this.config.getServiceBase() + "/deleteReminder", reminder, {
+        headers: headers
+      })
+        .map(res => res)
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+  }
 }

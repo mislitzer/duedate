@@ -22,11 +22,18 @@
         </ion-list-header>
 
        <div *ngIf="reminders.length">
-            <ion-item *ngFor="let reminder of reminders" value="reminder">
+         <ion-item-sliding *ngFor="let reminder of reminders" value="reminder">
+            <ion-item>
                 <ion-label>
                     <span class="taskHeader">{{reminder.reminderTime | date: 'dd.MM.yyyy - HH:mm'}}</span>
                 </ion-label>
             </ion-item>
+           <ion-item-options side="right">
+             <button class="unsubscribe" color="danger" ion-button (tap)="removeReminder(reminder)">
+               <ion-icon item-right name="trash"></ion-icon>
+             </button>
+           </ion-item-options>
+         </ion-item-sliding>
         </div>
         <div *ngIf="!reminders.length">
             <ion-item>
