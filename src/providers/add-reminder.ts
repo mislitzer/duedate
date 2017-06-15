@@ -90,4 +90,20 @@ export class AddReminderService {
         });
     });
   }
+
+  loadRemindersAll(userId){
+    if (this.data) {
+      return Promise.resolve(this.data);
+    }
+
+    return new Promise(resolve => {
+      this.http.get(this.config.getServiceBase() + "/reminderAllList/" + userId)
+        .map(res => res)
+        .subscribe(data => {
+          this.data = data;
+          resolve(this.data);
+          this.data = null;
+        });
+    });
+  }
 }

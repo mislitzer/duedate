@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {LoadingController, NavController, NavParams} from 'ionic-angular';
 import {Configuration} from "../../environments/configuration";
 import {AddReminderService} from '../../providers/add-reminder';
-import {ReminderPage} from "../reminder/reminder";
 
 
 @Component({
@@ -43,17 +42,14 @@ export class AddReminderPage {
      switch(this.value){
       case '1':
         this.reminder.time = deadlineDate.setMinutes(deadlineDate.getMinutes() - 5);
-        console.log(new Date(this.reminder.time));
         break;
 
       case '2':
        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 1);
-        console.log(new Date(this.reminder.time));
         break;
 
       case '3':
        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 168);
-        console.log(new Date(this.reminder.time));
        break;
 
       default:

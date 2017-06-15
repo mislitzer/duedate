@@ -55,7 +55,8 @@
     "SEMESTER": "this semester",
     "TITLE": "add reminder",
     "LIST-TITLE": "new reminder",
-    "CREATE": "create"
+    "CREATE": "create",
+    "NOREMINDER":"No Reminder subscribed"
   },
   "SETTINGS": {
     "ACCOUNT_SETTINGS": "Account Settings",

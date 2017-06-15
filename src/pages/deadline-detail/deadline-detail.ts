@@ -55,23 +55,20 @@ export class DeadlineDetail {
 
     removeReminder(reminder){
 
-      console.log("Löschen");
-      console.log(reminder);
-
       this.addReminderService.deleteReminder(reminder.reminder_id).then(data => {
         this.presentToast(this.labels.REMINDER_REMOVED);
         this.loadReminders();
       });
     }
 
-  presentToast(message: string) {
-    let toast = this.toastCtrl.create({
-      message: message,
-      duration: 3000,
-      position: 'bottom'
-    });
+    presentToast(message: string) {
+      let toast = this.toastCtrl.create({
+        message: message,
+        duration: 3000,
+        position: 'bottom'
+      });
 
-    toast.present();
-  }
+      toast.present();
+    }
 
 }

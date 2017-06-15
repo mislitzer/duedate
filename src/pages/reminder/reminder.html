@@ -11,76 +11,87 @@
 
 </ion-header>
 <ion-content>
+  <div *ngIf="!empty">
+    <div *ngIf="tomorrowReminders.length">
+      <ion-list>
+        <ion-list-header class="listHeader">
+          {{"REMINDER.TOMORROW" | translate}}
+        </ion-list-header>
+        <div *ngIf="tomorrowReminders.length">
+          <ion-item *ngFor="let tomorrow of tomorrowReminders" value="module">
+
+            <ion-label>
+              <span class="taskHeader">{{tomorrow.deadline.moduleobj.module_Name}}</span> <br/>
+              <span class="taskDescription">{{tomorrow.deadline.deadline_name}}</span>
+            </ion-label>
+
+            <ion-label item-right>
+              {{ tomorrow.reminderTime | date:'dd.MM.yyyy - HH:mm'}}
+            </ion-label>
+
+            <ion-icon  class="icon-color" item-right name="md-time"></ion-icon>
 
 
-  <ion-list>
-    <ion-list-header class="listHeader">
-      {{"REMINDER.TOMORROW" | translate}}
-    </ion-list-header>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
 
-    <ion-item *ngFor="let module of modules" value="module">
+    <div *ngIf="nextWeekReminders.length">
+      <ion-list>
+        <ion-list-header class="listHeader">
+          {{"REMINDER.NEXT-WEEK" | translate}}
+        </ion-list-header>
 
-      <ion-label>
-        <span class="taskHeader">{{module.title}}</span> <br/>
-        <span class="taskDescription">{{module.name}}</span>
-      </ion-label>
+          <ion-item *ngFor="let nextWeek of nextWeekReminders" value="module">
 
-      <ion-label item-right>
-        {{ module.dueDate | date:'dd.MM.yyyy'}}
-      </ion-label>
+            <ion-label>
+              <span class="taskHeader">{{nextWeek.deadline.moduleobj.module_Name}}</span> <br/>
+              <span class="taskDescription">{{nextWeek.deadline.deadline_name}}</span>
+            </ion-label>
 
-      <ion-icon  class="icon-color" item-right name="md-time"></ion-icon>
+            <ion-label item-right>
+              {{ nextWeek.reminderTime | date:'dd.MM.yyyy - HH:mm'}}
+            </ion-label>
 
-
-    </ion-item>
-
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header class="listHeader">
-      {{"REMINDER.NEXT-WEEK" | translate}}
-    </ion-list-header>
-
-    <ion-item *ngFor="let module of modules" value="module">
-
-      <ion-label>
-        <span class="taskHeader">{{module.title}}</span> <br/>
-        <span class="taskDescription">{{module.name}}</span>
-      </ion-label>
-
-      <ion-label item-right>
-        {{ module.dueDate | date:'dd.MM.yyyy'}}
-      </ion-label>
-
-      <ion-icon  class="icon-color" item-right name="md-time"></ion-icon>
+            <ion-icon  class="icon-color" item-right name="md-time"></ion-icon>
 
 
-    </ion-item>
+          </ion-item>
+      </ion-list>
+    </div>
 
-  </ion-list>
+    <div *ngIf="semesterReminders.length">
+      <ion-list>
+        <ion-list-header class="listHeader">
+          {{"REMINDER.SEMESTER" | translate}}
+        </ion-list-header>
+        <div *ngIf="semesterReminders.length">
+          <ion-item *ngFor="let reminder of semesterReminders" value="semesters">
 
-  <ion-list>
-    <ion-list-header class="listHeader">
-      {{"REMINDER.SEMESTER" | translate}}
-    </ion-list-header>
+            <ion-label>
+              <span class="taskHeader">{{reminder.deadline.moduleobj.module_Name}}</span> <br/>
+              <span class="taskDescription">{{reminder.deadline.deadline_name}}</span>
+            </ion-label>
 
-    <ion-item *ngFor="let module of modules" value="module">
+            <ion-label item-right>
+              {{ reminder.reminderTime |  date: 'dd.MM.yyyy - HH:mm'}}
+            </ion-label>
 
-      <ion-label>
-        <span class="taskHeader">{{module.title}}</span> <br/>
-        <span class="taskDescription">{{module.name}}</span>
-      </ion-label>
-
-      <ion-label item-right>
-        {{ module.dueDate | date:'dd.MM.yyyy'}}
-      </ion-label>
-
-      <ion-icon class="icon-color" item-right name="md-time"></ion-icon>
-
-
-    </ion-item>
-
-  </ion-list>
-
-
+            <ion-icon class="icon-color" item-right name="md-time"></ion-icon>
+          </ion-item>
+        </div>
+      </ion-list>
+    </div>
+  </div>
+  <div *ngIf="empty">
+    <ion-list-header>{{ "DEADLINE_DETAIL.TITLE" | translate}}</ion-list-header>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          {{"REMINDER.NOREMINDER" | translate}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
