@@ -1,7 +1,11 @@
 <ion-header>
     <ion-row>
-        <div class="flexbar">
-            <page-search></page-search>
+        <div class="flexbar" >
+          <div style="text-align:center" *ngIf="!user.student"><h3>Welcome</h3>
+          </div>
+
+          <page-search></page-search>
+
             <div class="addIconHeader flexitem2" *ngIf="!user.student">
                 <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
             </div>

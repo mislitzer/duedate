@@ -34,6 +34,7 @@ ion-header{
 
 .list-header-md{
   min-height:3rem;
+  margin-bottom:0;
 }
 
 .list-md + ion-list ion-list-header{
@@ -109,5 +110,6 @@ ion-item-options .button {
 .icon-color{
   color: #434343;
 }
+
 
 
