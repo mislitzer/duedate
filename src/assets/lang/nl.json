@@ -47,7 +47,9 @@
     "NO-REMINDER": "No Reminder available",
     "5MINUTES": "5 minuten",
     "1HOUR": "1 hour",
-    "1WEEK": "1 week"
+    "1WEEK": "1 week",
+    "HOUR24": "24 hours",
+    "HOUR72": "72 hours"
   },
   "REMINDER": {
     "NEXT-WEEK": "next week",
@@ -70,7 +72,9 @@
     "FIVE": "5 minutes",
     "HOUR": "1 hour",
     "DAY": "1 day",
-    "WEEK": "1 week"
+    "WEEK": "1 week",
+    "HOUR24": "24 hours",
+    "HOUR72": "72 hours"
   },
   "SUBSCRIBE-MODULE": {
     "TITLE": "subscribe module",

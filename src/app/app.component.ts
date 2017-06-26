@@ -9,23 +9,29 @@ import {Configuration} from "../environments/configuration";
 
 
 @Component({
-    templateUrl: 'app.html'
+  templateUrl: 'app.html'
 })
 export class DueDate {
-    rootPage: any = Start;
+  rootPage:any = Start;
 
-    constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, translate: TranslateService, public config: Configuration) {
-        platform.ready().then(() => {
-            statusBar.styleDefault();
-            splashScreen.hide();
+  constructor(platform:Platform, statusBar:StatusBar, splashScreen:SplashScreen, translate:TranslateService, public config:Configuration) {
+    platform.ready().then(() => {
+      statusBar.styleDefault();
+      splashScreen.hide();
 
-            //Set language
-            translate.setDefaultLang('en');
-            translate.use('en');
+      //Set language
+      let language:any = navigator.language;
 
-            translate.get('GENERAL').subscribe((res: string) => {
-                config.setLabels(res);
-            });
-        });
-    }
+      if (language != "nl" || language != "en") {
+        language = "en";
+      }
+
+      translate.setDefaultLang(language);
+      translate.use(language);
+
+      translate.get('GENERAL').subscribe((res:string) => {
+        config.setLabels(res);
+      });
+    });
+  }
 }
