@@ -5,25 +5,24 @@ import {AddReminderService} from '../../providers/add-reminder';
 
 
 @Component({
-    selector: 'page-add-reminder',
-    templateUrl: 'add-reminder.html',
+  selector: 'page-add-reminder',
+  templateUrl: 'add-reminder.html',
 })
 export class AddReminderPage {
 
-  module: any = {};
-  user: any;
-  loading: any;
+  module:any = {};
+  user:any;
+  loading:any;
   labels:any;
-  value: any;
-  reminder: any = {};
+  value:any;
+  reminder:any = {};
   deadline:any;
 
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public config: Configuration,
-              public loadingCtrl: LoadingController,
-              public addReminderService: AddReminderService
-             ) {
+  constructor(public navCtrl:NavController,
+              public navParams:NavParams,
+              public config:Configuration,
+              public loadingCtrl:LoadingController,
+              public addReminderService:AddReminderService) {
     this.user = this.config.getUser();
     this.labels = config.getLabels();
     this.deadline = this.navParams.get("deadline");
@@ -39,18 +38,22 @@ export class AddReminderPage {
     this.reminder.deadline_id = this.deadline.deadline_id;
 
     let deadlineDate = new Date(parseInt(this.deadline.deadlinetime));
-     switch(this.value){
+    switch (this.value) {
       case '1':
-        this.reminder.time = deadlineDate.setMinutes(deadlineDate.getMinutes() - 5);
+        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 1);
         break;
 
       case '2':
-       this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 1);
+        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 24);
         break;
 
       case '3':
-       this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 168);
-       break;
+        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 72);
+        break;
+
+      case '4':
+        this.reminder.time = deadlineDate.setHours(deadlineDate.getHours() - 168);
+        break;
 
       default:
         console.log("Error");

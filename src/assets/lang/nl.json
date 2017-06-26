@@ -1,12 +1,103 @@
 {
-	"HELLO":"Test",
-    "HOME": {
-        "COURSE": "Course",
-        "LABEL1": "Next Label",
-        "LABEL2": "Next Label"
-    },
-    "MODULES": {
-    	"LABEL1": "Next Label",
-        "LABEL2": "Next Label"
-    }
+  "HELLO": "Test",
+  "START": {
+    "WELCOME": "WELCOME",
+    "LOGIN": "Login",
+    "REGISTER": "Register"
+  },
+  "REGISTER": {
+    "EMAIL": "Email",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "PASSWORD_REPEAT": "Repeat Password",
+    "REGISTER": "Register"
+  },
+  "HOME": {
+    "COURSE": "Course",
+    "MODULES": "Modules",
+    "NOMODS": "No Modules subscribed"
+  },
+  "MODULES-DETAIL": {
+    "TITLE": "Deadlines",
+    "LABEL2": "Next Label",
+    "ADDMODULE": "Add to Modules",
+    "NO_DEADLINES": "No Deadlines available"
+  },
+  "ADD-MODULE": {
+    "TITLE": "create module",
+    "LIST-TITLE": "new module",
+    "NAME": "Name:",
+    "DESCRIPTION": "Short description:"
+  },
+  "DEADLINES": {
+    "TITLE": "add deadline",
+    "NAME": "Name:",
+    "TOPIC": "Topic:",
+    "DATE": "Date:",
+    "TIME": "Time:",
+    "CLASS": "Class:",
+    "GO": "next",
+    "LIST-TITLE": "Deadline",
+    "DESCRIPTION": "Description:",
+    "CANCEL": "Cancel",
+    "CREATE": "Create"
+  },
+  "DEADLINE_DETAIL":{
+    "TITLE": "Reminder",
+    "NO-REMINDER": "No Reminder available",
+    "5MINUTES": "5 minuten",
+    "1HOUR": "1 hour",
+    "1WEEK": "1 week"
+  },
+  "REMINDER": {
+    "NEXT-WEEK": "next week",
+    "TOMORROW": "tomorrow",
+    "SEMESTER": "this semester",
+    "TITLE": "add reminder",
+    "LIST-TITLE": "new reminder",
+    "CREATE": "create",
+    "NOREMINDER":"No Reminder subscribed"
+  },
+  "SETTINGS": {
+    "ACCOUNT_SETTINGS": "Account Settings",
+    "REG_NUMBER": "Registration number:",
+    "EMAIL": "Email:",
+    "CHANGE_PASSWORD": "Change Password",
+    "INFOS": "Alerts",
+    "CLASS": "Class",
+    "STANDARD": "Standard Reminder",
+    "LOGOUT": "Logout",
+    "FIVE": "5 minutes",
+    "HOUR": "1 hour",
+    "DAY": "1 day",
+    "WEEK": "1 week"
+  },
+  "SUBSCRIBE-MODULE": {
+    "TITLE": "subscribe module",
+    "LIST-TITLE": "found modules",
+    "CLOSE": "Close Search Page"
+  },
+  "GENERAL": {
+    "LOADING": "Please wait...",
+    "MISTAKE_ADDMODULE": "Module name is required!",
+    "MISTAKE_ADDDEADLINES": "Deadlines name is required!",
+    "MODULE_ADDED": "Module was added",
+    "MODULE_REMOVED": "Module removed",
+    "DEADLINE_REMOVED": "Deadline removed",
+    "REMINDER_REMOVED": "Reminder removed",
+    "NORESULTS": "No modules found",
+    "ADD_DEADLINE": "add deadline",
+    "EDIT_DEADLINE": "edit deadline",
+    "DEADLINE_CREATE": "Create",
+    "DEADLINE_SAVE": "Save",
+    "REGISTER_PWREPEAT": "The passwords do not match!",
+    "REGISTER_ATLEAST": "Your password must have at least 6 characters",
+    "REGISTER_VALIDMAIL": "Please fill in all input fields and type in a valid mail address!",
+    "REGISTER_VALID": "Please fill out all input fields!",
+    "REGISTER_VERIFY": "Thank you! Please look at your mail inbox to verify your register process!",
+    "PW_CHANGED": "Password changed",
+    "PW_FAILED": "Password change failed - incorrect current Password",
+    "LOGIN_NOTFOUND": "User not found",
+    "LOGIN_PWINCORRECT": "Password incorrect"
+  }
 }

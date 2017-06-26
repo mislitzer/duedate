@@ -19,7 +19,7 @@ export class DueDate {
             statusBar.styleDefault();
             splashScreen.hide();
 
-            //Sprache setzen
+            //Set language
             translate.setDefaultLang('en');
             translate.use('en');
 

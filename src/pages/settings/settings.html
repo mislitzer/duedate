@@ -1,93 +1,93 @@
 <ion-header>
-    <ion-row>
-        <div class="flexbar">
-            <page-search></page-search>
-            <div class="addIconHeader flexitem2" *ngIf="!user.student">
-                <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
-            </div>
-        </div>
+  <ion-row>
+    <div class="flexbar">
+      <page-search></page-search>
+      <!--<div class="addIconHeader flexitem2" *ngIf="!user.student">
+          <ion-icon class="addIcon" item-right name="md-add-circle" (click)="clicked($event)"></ion-icon>
+      </div>-->
+    </div>
 
-    </ion-row>
+  </ion-row>
 
 </ion-header>
 
 <ion-content>
-    <ion-list>
-        <ion-list-header class="listHeader">
-            {{'SETTINGS.ACCOUNT_SETTINGS' | translate}}
-        </ion-list-header>
+  <ion-list>
+    <ion-list-header class="listHeader">
+      {{'SETTINGS.ACCOUNT_SETTINGS' | translate}}
+    </ion-list-header>
 
-        <ion-item *ngIf="user.student">
-            <ion-label>
-                {{'SETTINGS.REG_NUMBER' | translate}} {{user.id}}
-            </ion-label>
+    <ion-item *ngIf="user.student">
+      <ion-label>
+        {{'SETTINGS.REG_NUMBER' | translate}} {{user.id}}
+      </ion-label>
 
-        </ion-item>
+    </ion-item>
 
-        <ion-item>
-            <ion-label>
-                {{'SETTINGS.EMAIL' | translate}} {{user.email}}
-            </ion-label>
-        </ion-item>
-
-
-        <ion-item (click)="changePassword()">
-            <ion-label>
-                {{'SETTINGS.CHANGE_PASSWORD' | translate}}
-            </ion-label>
-            <ion-icon name="arrow-forward" item-right>
-            </ion-icon>
-        </ion-item>
+    <ion-item>
+      <ion-label>
+        {{'SETTINGS.EMAIL' | translate}} {{user.email}}
+      </ion-label>
+    </ion-item>
 
 
-        <ion-item *ngIf="user.student" class="duedate-toggle">
-            <ion-label>
-                {{'SETTINGS.INFOS' | translate}}
-            </ion-label>
-            <ion-toggle item-right [(ngModel)]="alerts" (ngModelChange)="saveSettingsAlerts()"></ion-toggle>
-        </ion-item>
+    <ion-item (click)="changePassword()">
+      <ion-label>
+        {{'SETTINGS.CHANGE_PASSWORD' | translate}}
+      </ion-label>
+      <ion-icon name="arrow-forward" item-right>
+      </ion-icon>
+    </ion-item>
 
-        <ion-item *ngIf="user.student">
-            <ion-label>
-                 {{'SETTINGS.CLASS' | translate}}
-             </ion-label>
-             <ion-select [(ngModel)]="course" name="deadlinecourse" (ngModelChange)="saveSettingsCourse()">
-                <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}</ion-option>
-            </ion-select>
-         </ion-item>
 
-        <ion-item (click)="logoutUser()">
-            <ion-label>
-                {{'SETTINGS.LOGOUT' | translate}}
-            </ion-label>
-            <ion-icon name="arrow-forward" item-right></ion-icon>
-        </ion-item>
-    </ion-list>
+    <ion-item *ngIf="user.student" class="duedate-toggle">
+      <ion-label>
+        {{'SETTINGS.INFOS' | translate}}
+      </ion-label>
+      <ion-toggle item-right [(ngModel)]="alerts" (ngModelChange)="saveSettingsAlerts()"></ion-toggle>
+    </ion-item>
 
-    <ion-list radio-group *ngIf="user.student">
-        <ion-list-header class="listHeader">
-            <ion-label>{{'SETTINGS.STANDARD' | translate}}</ion-label>
-        </ion-list-header>
+    <ion-item *ngIf="user.student">
+      <ion-label>
+        {{'SETTINGS.CLASS' | translate}}
+      </ion-label>
+      <ion-select [(ngModel)]="course" name="deadlinecourse" (ngModelChange)="saveSettingsCourse()">
+        <ion-option *ngFor="let course of courses" value="{{course.course_Id}}">{{course.course_Name}}</ion-option>
+      </ion-select>
+    </ion-item>
 
-        <ion-item class="centeredList">
-            <ion-label>{{ 'SETTINGS.FIVE' | translate }}</ion-label>
-            <ion-radio value="select1" checked="true"></ion-radio>
-        </ion-item>
+    <ion-item (click)="logoutUser()">
+      <ion-label>
+        {{'SETTINGS.LOGOUT' | translate}}
+      </ion-label>
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
 
-        <ion-item class="centeredList">
-            <ion-label>{{ 'SETTINGS.HOUR' | translate }}</ion-label>
-            <ion-radio value="select2"></ion-radio>
-        </ion-item>
+  <ion-list radio-group *ngIf="user.student">
+    <ion-list-header class="listHeader">
+      <ion-label>{{'SETTINGS.STANDARD' | translate}}</ion-label>
+    </ion-list-header>
 
-        <ion-item class="centeredList">
-            <ion-label>{{ 'SETTINGS.DAY' | translate }}</ion-label>
-            <ion-radio value="select3"></ion-radio>
-        </ion-item>
+    <ion-item class="centeredList">
+      <ion-label>{{ 'SETTINGS.HOUR' | translate }}</ion-label>
+      <ion-radio value="select1" checked="true"></ion-radio>
+    </ion-item>
 
-        <ion-item class="centeredList">
-            <ion-label>{{ 'SETTINGS.WEEK' | translate }}</ion-label>
-            <ion-radio value="select4"></ion-radio>
-        </ion-item>
-    </ion-list>
+    <ion-item class="centeredList">
+      <ion-label>{{ 'SETTINGS.HOUR24' | translate }}</ion-label>
+      <ion-radio value="select2"></ion-radio>
+    </ion-item>
+
+    <ion-item class="centeredList">
+      <ion-label>{{ 'SETTINGS.HOUR72' | translate }}</ion-label>
+      <ion-radio value="select3"></ion-radio>
+    </ion-item>
+
+    <ion-item class="centeredList">
+      <ion-label>{{ 'SETTINGS.WEEK' | translate }}</ion-label>
+      <ion-radio value="select4"></ion-radio>
+    </ion-item>
+  </ion-list>
 
 </ion-content>
